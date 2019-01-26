@@ -1,0 +1,98 @@
+
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+
+// Variables
+@import 'theme/variables';
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import 'theme/bootswatch';
+
+@import '~dropzone/dist/min/dropzone.min.css';
+
+html {
+  height: 100%;
+  box-sizing: border-box;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  position: relative;
+  margin: 0;
+  padding-bottom: 25rem;
+  min-height: 100%;
+}
+
+.user-navbar {
+  height: 50px;
+  border: 0;
+}
+
+.col-form-label {
+  padding-top: 0.75rem;
+  padding-bottom: 0.75rem;
+}
+
+.event-item {
+  border: 1px solid $gray-500;
+}
+
+.dropzone {
+  margin-bottom: 20px;
+  min-height: auto;
+}
+
+.event-show-link:hover {
+  text-decoration: none !important;
+}
+
+.event-description {
+  text-align: justify;
+}
+
+.dz-preview .dz-image img {
+  height: 128px;
+}
+
+.carousel {
+  height: 500px;
+  max-height: 500px;
+  .carousel-item:after {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(73, 40, 40, 0.6);
+  }
+  img {
+    height: 500px !important;
+    width: auto !important;
+    margin: 0 auto;
+  }
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  .title {
+    color: $warning;
+  }
+  a {
+    color: $white;
+    &:hover {
+      text-decoration: none !important;
+      color: $warning;
+    }
+  }
+}

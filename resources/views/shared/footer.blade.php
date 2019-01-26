@@ -1,0 +1,47 @@
+<!-- Footer -->
+<footer class="page-footer bg-dark text-white pt-4">
+
+    <div class="container text-center text-md-left">
+        <div class="row">
+            <div class="col-md-2 mt-md-0 mt-3">
+                <h5 class="text-uppercase title font-weight-bold">Help Center</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> How to Pay</a></li>
+                    <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> FAQ's</a></li>
+                    <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Sitemap</a></li>
+                    <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Delivery Info</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 mt-md-0 mt-3">
+                <h5 class="text-uppercase title font-weight-bold">Customer information</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> About Us</a></li>
+                    <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> FAQ's</a></li>
+                    <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Sell Your Items</a></li>
+                    <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Contact Us</a></li>
+                    <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> RSS</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 mt-md-0 mt-3">
+                <h5 class="text-uppercase title font-weight-bold">Security & privacy</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Terms Of Use</a></li>
+                    <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Privacy Policy</a></li>
+                    <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Return / Refund Policy</a></li>
+                    <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Store Locations</a></li>
+                </ul>
+            </div>
+
+            <div class="col-md-3 mt-md-0 mt-3">
+                <h5 class="text-uppercase title font-weight-bold">Payment</h5>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis nulla animi illum dolores quae non aperiam corrupti libero architecto recusandae eaque iste ullam sed corporis quis.</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-copyright text-center ">© 2018 Copyright:
+        <a href="#" class="text-white"> CESi.eia</a>
+    </div>
+</footer>

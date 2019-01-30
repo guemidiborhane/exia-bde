@@ -20,9 +20,27 @@ class CommentsController extends Controller
         return response()->json(Comment::with('user:id,lname,fname')->find($comment->id));
     }
 
-    public function destroy(Request $request, Comment $comment)
+    public function destroy(Request $request, $comment_id)
     {
-        $comment->delete();
+        if ($request->input('report')) {
+            Comment::find($comment_id)->delete();
+        } else {
+            if ($comment = Comment::find($comment_id)) {
+                $comment->delete();
+            } elseif ($comment = Comment::withTrashed()->find($comment_id)) {
+                $comment->forceDelete();
+            }
+        }
         return response()->json(['done' => true]);
+    }
+
+    public function restore($id)
+    {
+        $comment = Comment::withTrashed()->find($id);
+        if ($comment) {
+            $comment->deleted_at = null;
+            $comment->save();
+        }
+        return response()->json(['done']);
     }
 }

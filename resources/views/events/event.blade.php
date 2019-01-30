@@ -16,13 +16,12 @@
                 @endif
                 @if (Auth::user()->hasRole('staff'))
                     <a href="{{ route('events.destroy', compact('event')) }}"
-                        {{-- document.getElementById('destroy-form-{{$event->id}}').submit(); --}}
+                        class="btn btn-sm btn-danger"
                         onclick="event.preventDefault();
                         axios.delete(event.target.getAttribute('href')).then(function () {
                             let item = document.querySelector('#event-item-{{$event->id}}');
                             item.parentNode.removeChild(item);
-                        })"
-                        class="btn btn-sm btn-danger">
+                        })">
                         <i class="fa fa-flag"></i>
                     </a>
                     <form id="destroy-form-{{$event->id}}" action="{{ route('events.destroy', compact('event')) }}" method="POST" style="display: none;">

@@ -11,13 +11,19 @@
                 <div class="media-body">
                     <h5 class="mt-0 mb-1">
                         {{ `${comment.user.fname} ${comment.user.lname}` }}
+                        <a href="#" @click.prevent="report(comment)"
+                            class="btn btn-sm btn-primary float-right" v-if="userAuthenticated && userRole === 'staff'">
+                            <i class="fa fa-flag"></i>
+                        </a>
                         <div class="col-md-2 text-left my-2" style="border-top: 1px solid #e5e5e5;">
                         </div>
                     </h5>
                     <p class="lead float-left">{{ comment.body }}</p>
-                    <a href="#" @click.prevent="destroy(comment)" class="btn btn-sm btn-danger float-right" v-if="userAuthenticated && comment.user.id == userId">
-                        <i class="fa fa-trash"></i>
-                    </a>
+                    <div class="float-right">
+                        <a href="#" @click.prevent="destroy(comment)" class="btn btn-sm btn-danger" v-if="userAuthenticated && comment.user.id == userId">
+                            <i class="fa fa-trash"></i>
+                        </a>
+                    </div>
                 </div>
             </li>
         </ul>
@@ -42,6 +48,9 @@
             },
             userId: {
                 default: false
+            },
+            userRole: {
+                type: String
             }
         },
 
@@ -58,7 +67,7 @@
 
             userAuthenticated () {
                 return this.userId
-            }
+            },
         },
 
         methods: {
@@ -73,7 +82,26 @@
             },
 
             destroy ({id}) {
-                axios.delete(this.deleteUrl + '')
+                axios.delete(this.deleteUrl + '/' + id).then(response => {
+                    this.removeComment(id)
+                })
+            },
+
+            removeComment (id) {
+                let index = this.comments.map(comment => comment.id).indexOf(id)
+                this.comments.splice(index, 1)
+                this.$forceUpdate()
+            },
+
+            report ({id}) {
+                console.log(id)
+                if (this.userRole === 'staff') {
+                    axios.delete(this.deleteUrl + '/' + id, {
+                        data: { report: true }
+                    }).then(response => {
+                        this.removeComment(id)
+                    })
+                }
             }
         }
     }

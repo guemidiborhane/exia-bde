@@ -1789,6 +1789,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: {
     comments: {
@@ -1806,6 +1812,9 @@ __webpack_require__.r(__webpack_exports__);
     },
     userId: {
       default: false
+    },
+    userRole: {
+      type: String
     }
   },
   data: function data() {
@@ -1837,8 +1846,35 @@ __webpack_require__.r(__webpack_exports__);
       });
     },
     destroy: function destroy(_ref2) {
+      var _this2 = this;
+
       var id = _ref2.id;
-      axios.delete(this.deleteUrl + '');
+      axios.delete(this.deleteUrl + '/' + id).then(function (response) {
+        _this2.removeComment(id);
+      });
+    },
+    removeComment: function removeComment(id) {
+      var index = this.comments.map(function (comment) {
+        return comment.id;
+      }).indexOf(id);
+      this.comments.splice(index, 1);
+      this.$forceUpdate();
+    },
+    report: function report(_ref3) {
+      var _this3 = this;
+
+      var id = _ref3.id;
+      console.log(id);
+
+      if (this.userRole === 'staff') {
+        axios.delete(this.deleteUrl + '/' + id, {
+          data: {
+            report: true
+          }
+        }).then(function (response) {
+          _this3.removeComment(id);
+        });
+      }
     }
   }
 });
@@ -56457,6 +56493,23 @@ var render = function() {
                   _vm._s(comment.user.fname + " " + comment.user.lname) +
                   "\n                    "
               ),
+              _vm.userAuthenticated && _vm.userRole === "staff"
+                ? _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-sm btn-primary float-right",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.report(comment)
+                        }
+                      }
+                    },
+                    [_c("i", { staticClass: "fa fa-flag" })]
+                  )
+                : _vm._e(),
+              _vm._v(" "),
               _c("div", {
                 staticClass: "col-md-2 text-left my-2",
                 staticStyle: { "border-top": "1px solid #e5e5e5" }
@@ -56467,22 +56520,24 @@ var render = function() {
               _vm._v(_vm._s(comment.body))
             ]),
             _vm._v(" "),
-            _vm.userAuthenticated && comment.user.id == _vm.userId
-              ? _c(
-                  "a",
-                  {
-                    staticClass: "btn btn-sm btn-danger float-right",
-                    attrs: { href: "#" },
-                    on: {
-                      click: function($event) {
-                        $event.preventDefault()
-                        _vm.destroy(comment)
+            _c("div", { staticClass: "float-right" }, [
+              _vm.userAuthenticated && comment.user.id == _vm.userId
+                ? _c(
+                    "a",
+                    {
+                      staticClass: "btn btn-sm btn-danger",
+                      attrs: { href: "#" },
+                      on: {
+                        click: function($event) {
+                          $event.preventDefault()
+                          _vm.destroy(comment)
+                        }
                       }
-                    }
-                  },
-                  [_c("i", { staticClass: "fa fa-trash" })]
-                )
-              : _vm._e()
+                    },
+                    [_c("i", { staticClass: "fa fa-trash" })]
+                  )
+                : _vm._e()
+            ])
           ])
         ])
       }),

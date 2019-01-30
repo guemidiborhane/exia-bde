@@ -27,6 +27,7 @@ Route::delete('/uploads', 'UploadsController@destroy')->name('uploads.delete');
 
 Route::post('/comments/{id}', 'CommentsController@store')->name('comments.store');
 Route::delete('/comments/{comment?}', 'CommentsController@destroy')->name('comments.destroy');
+Route::put('/comments/{comment}/restore', 'CommentsController@restore')->name('comments.restore');
 
 Route::post('/users/participate/{event}', 'UsersController@participate')->name('participate');
 Route::get('/users/events', 'UsersController@events')->name('users.events');

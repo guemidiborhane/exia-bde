@@ -36,18 +36,22 @@
             @endforeach
             @foreach ($comments as $comment)
                 <tr id="comment-item-{{$comment->id}}">
-                    <td>Évènement</td>
+                    <td>Commentaire</td>
                     <td>{{ $comment->body }}</td>
-                    <td>{{ $event->user->fname }} {{ $event->user->lname }}</td>
+                    <td>{{ $comment->user->fname }} {{ $comment->user->lname }}</td>
                     <td class="text-center">
-                        <a href="{{ route('events.restore', compact('comment')) }}">Restore</a>
+                        <a href="{{ route('comments.restore', compact('comment')) }}"
+                            onclick="event.preventDefault();
+                                axios.put(event.target.getAttribute('href')).then(function () {
+                                    let item = document.querySelector('#comment-item-{{$comment->id}}');
+                                    item.parentNode.removeChild(item);
+                                })">Restore</a>
                     </td>
                     <td class="text-center">
-                        <a href="{{ route('events.destroy', compact('comment')) }}"
+                        <a href="{{ route('comments.destroy', compact('comment')) }}"
                             onclick="event.preventDefault();
                             axios.delete(event.target.getAttribute('href')).then(function () {
-                                let item = document.querySelector('#comment-item-{{$comment->id}}');
-                                item.parentNode.removeChild(item);
+                                window.location = '/mib'
                             })">Men in Black</a>
                     </td>
                 </tr>

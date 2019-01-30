@@ -45,6 +45,7 @@
         <comments-component
         @auth
         user-id="{{ Auth::user()->id }}"
+        user-role="{{ Auth::user()->role }}"
         @endauth
             model="{{ get_class($event) }}"
             :comments='{{ json_encode($event->comments()->with('user:id,fname,lname')->latest()->get()) }}'

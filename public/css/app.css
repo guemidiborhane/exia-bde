@@ -10690,7 +10690,7 @@ body {
   bottom: 0;
   left: 0;
   right: 0;
-  background: rgba(73, 40, 40, 0.6);
+  background: rgba(0, 0, 0, 0.6);
 }
 
 .carousel img {
@@ -10716,5 +10716,28 @@ footer a {
 footer a:hover {
   text-decoration: none !important;
   color: #f0ad4e;
+}
+
+.event-image-bg {
+  height: 100%;
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.event-image-bg:after {
+  content: "";
+  display: block;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.cookies-banner {
+  max-height: 150px;
+}
+
+.cookies-banner strong {
+  font-weight: bold !important;
+  font-size: 150%;
 }
 

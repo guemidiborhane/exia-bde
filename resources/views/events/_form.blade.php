@@ -8,7 +8,7 @@
     </div>
 @endif
 
-@if (Auth::user()->role === 'bde' && $event->user_id)
+@if (Auth::user()->hasRole('bde') && $event->user_id)
     <h5 class="text-center">Author : {{ $event->author->fname }} {{ $event->author->lname }}</h5>
     <hr>
 @endif
@@ -46,7 +46,7 @@
     <div class="col-md-5">
         <input id="image" type="file" name="image" class="form-control {{ $errors->has('status') ? ' is-invalid' : '' }}">
     </div>
-@if (Auth::user()->role === 'bde')
+@if (Auth::user()->hasRole('bde'))
     <div class="custom-control custom-checkbox align-self-center col-md-4">
         <input id="status" type="checkbox" class="custom-control-input {{ $errors->has('status') ? ' is-invalid' : '' }}" name="status" {{ $event->status ? 'checked' : '' }}>
         <label class="custom-control-label" for="status">{{ __('Boite à idée?') }}</label>
@@ -55,7 +55,7 @@
 </div>
 
 
-@if (Route::currentRouteName() === 'events.edit' && Auth::user()->role === 'bde')
+@if (Route::currentRouteName() === 'events.edit' && Auth::user()->hasRole('bde'))
 <div class="form-group row mb-0">
     <div class="col-md-8 offset-md-3">
         @include('shared.dropzone')

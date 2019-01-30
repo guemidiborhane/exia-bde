@@ -46,4 +46,11 @@ class UsersController extends Controller
 
         return view('users.events', compact('participations', 'events'));
     }
+
+    public function reports()
+    {
+        $events = \App\Event::onlyTrashed()->get();
+        $comments = \App\Comment::onlyTrashed()->get();
+        return view('users.reports', compact('events', 'comments'));
+    }
 }

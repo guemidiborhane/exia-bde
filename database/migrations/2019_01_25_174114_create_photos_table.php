@@ -19,6 +19,7 @@ class CreatePhotosTable extends Migration
             $table->integer('event_id')->unsigned()->index();
             $table->string('filename');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->foreign('event_id')->references('id')->on('events')->onDelete('cascade');

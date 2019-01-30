@@ -12,8 +12,10 @@ try {
     window.$ = window.jQuery = require('jquery');
     window.Dropzone = require('dropzone');
     Dropzone.autoDiscover = false;
+    // var dt = require('datatables.net')($);
 
     require('bootstrap');
+    require('datatables.net-bs4')($);
 } catch (e) {}
 
 /**

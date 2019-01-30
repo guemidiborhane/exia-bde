@@ -22,6 +22,7 @@ class CreateEventsTable extends Migration
             $table->string('image')->nullable();
             $table->date('planned_on');
             $table->timestamps();
+            $table->softDeletes();
 
             $table->foreign('user_id')->references('id')->on('users');
         });

@@ -71,6 +71,16 @@
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <label for="center" class="col-md-4 col-form-label text-md-right">{{ __('Centre') }}</label>
+
+                            <div class="col-md-6">
+                                <select name="center" id="center" class="form-control">
+                                    <option value="1">Alger</option>
+                                    <option value="2">Oran</option>
+                                </select>
+                            </div>
+                        </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'fname', 'lname', 'email', 'password', 'role'
+        'fname', 'lname', 'email', 'password', 'role', 'center'
     ];
 
     /**
@@ -41,5 +41,15 @@ class User extends Authenticatable
     public function photos()
     {
         return $this->hasMany(\App\Photo::class);
+    }
+
+    public function getCampusAttribute()
+    {
+        return ($this->center === 1) ? 'Alger' : 'Oran';
+    }
+
+    public function hasRole($role)
+    {
+        return strtolower($this->role) === strtolower($role);
     }
 }

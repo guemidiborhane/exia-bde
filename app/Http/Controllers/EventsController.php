@@ -28,7 +28,7 @@ class EventsController extends Controller
     {
         $month = date('m');
         $year = date('Y');
-        $events = Event::where('status', null);
+        $events = Event::where(['status' => null, 'deleted_at' => null]);
 
         switch ($type) {
             case 'month':
@@ -70,7 +70,7 @@ class EventsController extends Controller
     {
         $validatedData = $request->validated();
 
-        if (\Auth::user()->role === 'student' || $request->input('status') === 'on') {
+        if (\Auth::user()->hasRole('student') || $request->input('status') === 'on') {
             $validatedData['status'] = 1;
         } elseif ($request->input('status') === null) {
             $validatedData['status'] = null;
@@ -138,8 +138,30 @@ class EventsController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Event $event)
+    public function destroy(Request $request, $event_id)
     {
-        //
+        if ($event = Event::find($event_id)) {
+            $event->delete();
+        } elseif ($event = Event::withTrashed()->find($event_id)) {
+            $event->forceDelete();
+        }
+        return response()->json(['done']);
+    }
+
+    public function restore($id)
+    {
+        $event = Event::withTrashed()->find($id);
+        if ($event) {
+            $event->deleted_at = null;
+            $event->save();
+        }
+        return response()->json(['done']);
+    }
+
+    public function participants(Event $event)
+    {
+        $participants = $event->participants;
+        $pdf = \PDF::loadView('pdf.participants', compact('participants'));
+        return $pdf->download($event->name.' - Participants.pdf');
     }
 }

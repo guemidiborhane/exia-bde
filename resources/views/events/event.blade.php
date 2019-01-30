@@ -1,4 +1,4 @@
-<li class="media event-item mb-4">
+<li class="media event-item mb-4" id="event-item-{{$event->id}}">
     <img
         src="{{ ($event->image) ? asset('storage/photos/'.$event->image) : 'https://via.placeholder.com/150?text=IMG' }}"
         class="mr-3 p-2"
@@ -9,9 +9,29 @@
             <a href="{{ route('events.show', compact('event')) }}" class="event-show-link">
                 {{ $event->name }}
             </a>
-            @if (Auth::check() && (Auth::user()->role === 'bde' || Auth::user()->events()->where('events.id', $event->id)->exists()))
-                <a href="{{ route('events.edit', compact('event')) }}" class="btn btn-success btn-sm float-right mr-2">Editer</a>
-            @endif
+            <div class="btn-group float-right mr-2" role="group">
+            @auth
+                @if (Auth::user()->hasRole('bde') || Auth::user()->events()->where('events.id', $event->id)->exists())
+                    <a href="{{ route('events.edit', compact('event')) }}" class="btn btn-success btn-sm">Editer</a>
+                @endif
+                @if (Auth::user()->hasRole('staff'))
+                    <a href="{{ route('events.destroy', compact('event')) }}"
+                        {{-- document.getElementById('destroy-form-{{$event->id}}').submit(); --}}
+                        onclick="event.preventDefault();
+                        axios.delete(event.target.getAttribute('href')).then(function () {
+                            let item = document.querySelector('#event-item-{{$event->id}}');
+                            item.parentNode.removeChild(item);
+                        })"
+                        class="btn btn-sm btn-danger">
+                        <i class="fa fa-flag"></i>
+                    </a>
+                    <form id="destroy-form-{{$event->id}}" action="{{ route('events.destroy', compact('event')) }}" method="POST" style="display: none;">
+                        @csrf
+                        @method('DELETE')
+                    </form>
+                @endif
+            @endauth
+            </div>
         </h5>
         <p class="pr-3">{{ str_limit($event->description, 200, ' (...)') }}</p>
         <div class="row">

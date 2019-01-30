@@ -52,7 +52,10 @@ class RegisterController extends Controller
             'fname' => ['required', 'string', 'max:255'],
             'lname' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'center' => ['required', 'integer'],
+            'password' => ['required', 'string', 'min:6', 'confirmed', 'regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/'],
+        ], [
+            'password.regex' => 'Le mot de passe doit contenir au moins 6 caractères et au moins une majuscule et un chiffre.'
         ]);
     }
 
@@ -68,6 +71,7 @@ class RegisterController extends Controller
             'fname' => $data['fname'],
             'lname' => $data['lname'],
             'email' => $data['email'],
+            'center' => $data['center'],
             'password' => Hash::make($data['password']),
             'role' => 'student'
         ]);

@@ -25,10 +25,14 @@
             @else
                 <li class="nav-item dropdown">
                     <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                        {{ Auth::user()->fname }} {{ Auth::user()->lname }} <span class="caret"></span>
+                        {{ Auth::user()->fname }} {{ Auth::user()->lname }}
+                        <small>({{ Auth::user()->campus }})</small><span class="caret"></span>
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                        <a href="{{ route('user_events') }}" class="dropdown-item">{{ __('Mes évènemnts') }}</a>
+                        <a href="{{ route('users.events') }}" class="dropdown-item">{{ __('Mes évènemnts') }}</a>
+                        @if (Auth::user()->hasRole('bde'))
+                            <a href="{{ route('users.reports') }}" class="dropdown-item">{{ __('Signalements') }}</a>
+                        @endif
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}"
                             onclick="event.preventDefault();

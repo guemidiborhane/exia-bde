@@ -3,9 +3,11 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Event extends Model
 {
+    use SoftDeletes;
     /**
      * The attributes that are mass assignable.
      *
@@ -15,7 +17,8 @@ class Event extends Model
         'name', 'description', 'planned_on', 'status', 'image'
     ];
 
-    protected $dates = ['planned_on'];
+
+    protected $dates = ['planned_on', 'deleted_at'];
 
     public function participants()
     {

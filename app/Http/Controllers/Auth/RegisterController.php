@@ -54,6 +54,7 @@ class RegisterController extends Controller
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'center' => ['required', 'integer'],
             'password' => ['required', 'string', 'min:6', 'confirmed', 'regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9]).{6,}$/'],
+            'legal-mentions' => ['required']
         ], [
             'password.regex' => 'Le mot de passe doit contenir au moins 6 caractères et au moins une majuscule et un chiffre.'
         ]);

@@ -81,7 +81,23 @@
                                 </select>
                             </div>
                         </div>
+                        <div class="form-group row">
+                            <div class="col-md-6 offset-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="legal-mentions" id="legal-mentions">
 
+                                    <label class="form-check-label" for="legal-mentions">
+                                        {{ __('J\'accepte les') }} <a href="https://www.cesi.fr/mentions-legales/" target="_blank">Mentions légales</a>
+                                    </label>
+                                </div>
+
+                                @if ($errors->has('legal-mentions'))
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('legal-mentions') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary btn-block">

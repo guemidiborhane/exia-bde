@@ -15,7 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('role')->index();
+            $table->enum('role', ['student', 'bde', 'staff'])->default('student')->index();
             $table->integer('center')->index();
             $table->string('fname');
             $table->string('lname');

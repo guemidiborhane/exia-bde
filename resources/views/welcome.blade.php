@@ -18,10 +18,10 @@
             <tbody>
             @foreach ($coming_events as $event)
                 <tr>
-                    <td><a href="{{ route('events.show', compact('event')) }}" class="text-white event-show-link">{{ $event->name }}</a></td>
-                    <td>{{ str_limit($event->description, 160, ' (...)') }}</td>
-                    <td>{{ $event->planned_on->format('d M Y') }}</td>
-                    <td class="text-center">{{ $event->participants()->count() }}</td>
+                    <td style="vertical-align: middle"><a href="{{ route('events.show', compact('event')) }}" class="text-white event-show-link">{{ $event->name }}</a></td>
+                    <td style="vertical-align: middle; text-align: justify">{{ str_limit($event->description, 160, ' (...)') }}</td>
+                    <td style="vertical-align: middle">{{ $event->planned_on->format('d M Y') }}</td>
+                    <td style="vertical-align: middle" class="text-center">{{ $event->participants()->count() }}</td>
                 </tr>
             @endforeach
             </tbody>

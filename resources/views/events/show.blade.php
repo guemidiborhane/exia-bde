@@ -18,7 +18,7 @@
                 </a>
             @endif
         @endauth
-        <p class="mt-4 event-description">{{ $event->description }}</p>
+        <p class="mt-4 event-description">{!! nl2br(e($event->description)) !!}</p>
         <h5 class="my-5">
             Photos <i class="fa fa-thumbs-up"></i>
             @auth

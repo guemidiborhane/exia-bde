@@ -143,6 +143,7 @@ class EventsController extends Controller
         if ($event = Event::find($event_id)) {
             $event->delete();
         } elseif ($event = Event::withTrashed()->find($event_id)) {
+            $event->participants()->detach();
             $event->forceDelete();
         }
         return response()->json(['done']);

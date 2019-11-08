@@ -10741,3 +10741,8 @@ footer a:hover {
   font-size: 150%;
 }
 
+.avatar {
+  border: 1px solid #ced4da;
+  border-radius: 50%;
+}
+

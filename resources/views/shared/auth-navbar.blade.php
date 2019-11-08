@@ -24,7 +24,8 @@
                 @endif
             @else
                 <li class="nav-item dropdown">
-                    <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                    <a id="navbarDropdown" class="nav-link dropdown-toggle mt-4" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                        <img src="{{ get_gravatar(Auth::user()->email) }}" alt="Avatar" class="avatar">
                         {{ Auth::user()->fname }} {{ Auth::user()->lname }}
                         <small>({{ Auth::user()->campus }})</small><span class="caret"></span>
                     </a>

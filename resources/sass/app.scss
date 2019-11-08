@@ -61,18 +61,18 @@ body {
   height: 128px;
 }
 
-.carousel {
+#carousel {
   height: 500px;
   max-height: 500px;
   .carousel-item:after {
-      content: "";
-      display: block;
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: rgba(0, 0, 0, 0.6);
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.6);
   }
   img {
     height: 500px !important;
@@ -122,3 +122,20 @@ footer {
   border: 1px solid $gray-400;
   border-radius: 50%;
 }
+
+.comment {
+  .card-text {
+    font-size: 16px;
+  }
+
+  .card-title {
+    font-weight: bold;
+    color: $gray-900;
+    .avatar {
+      float: right;
+      border-radius: 50%;
+    }
+  }
+
+}
+

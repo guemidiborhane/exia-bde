@@ -32,3 +32,4 @@ Vue.component('comments-component', require('./components/Comments.vue').default
 const app = new Vue({
     el: '#app'
 });
+

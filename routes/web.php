@@ -6,7 +6,9 @@ Route::get('/', function () {
     $week_ends_at = Carbon::now()->endOfWeek()->toDateString();
     $coming_events = App\Event::whereRaw('planned_on >= ? AND planned_on <= ? AND status IS NULL', [today(), $week_ends_at])->get();
     $past_events = App\Event::whereRaw('planned_on < ?', today())->limit(5)->get();
-    return view('welcome', compact('coming_events', 'past_events'));
+
+    $comments = App\Comment::orderBy('created_at')->limit(15)->get();
+    return view('welcome', compact('coming_events', 'past_events', 'comments'));
 })->name('home');
 
 Route::get('mib', function () {

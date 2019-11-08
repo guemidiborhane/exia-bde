@@ -1,4 +1,3 @@
-
 window._ = require('lodash');
 
 /**
@@ -16,6 +15,7 @@ try {
 
     require('bootstrap');
     require('datatables.net-bs4')($);
+
 } catch (e) {}
 
 /**

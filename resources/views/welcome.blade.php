@@ -36,5 +36,28 @@
                 </h1>
             </div>
         @endif
+
+        <hr class="my-4">
+        <h2 class="text-center">Commentaires</h2>
+
+
+        <div class="card-columns">
+        @foreach ($comments as $comment)
+        <div class="card comment">
+            <div class="card-body">
+                <p class="card-text mb-4">{{ str_limit($comment->body, 160, ' (...)') }}</p>
+                <p class="card-title">
+                    {{ ucfirst($comment->user->fname) }} {{ $comment->user->lname }}
+                    <img src="{{ get_gravatar($comment->user->email) }}" alt="avatar" class="avatar">
+                </p>
+                <p class="card-subtitle mb-2 text-muted">
+                    {{ $comment->user->campus }} &middot; <a href="{{ route('events.show', ['id' => $comment->commentable->id]) }}">{{ $comment->commentable->name }}</a>
+                </p>
+            </div>
+        </div>
+        @endforeach
+        </div>
     </div>
+
+
 @endsection

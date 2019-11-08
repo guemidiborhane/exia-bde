@@ -5,8 +5,12 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-class Event extends Model
+use Cog\Likeable\Contracts\Likeable as LikeableContract;
+use Cog\Likeable\Traits\Likeable;
+
+class Event extends Model implements LikeableContract
 {
+    use Likeable;
     use SoftDeletes;
     /**
      * The attributes that are mass assignable.

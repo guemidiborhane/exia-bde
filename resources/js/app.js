@@ -22,6 +22,7 @@ window.Vue = require('vue');
 
 Vue.component('participate-component', require('./components/Participation.vue').default);
 Vue.component('comments-component', require('./components/Comments.vue').default);
+Vue.component('likes-component', require('./components/Likes.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "4c0c64ec6980ffe05b9105415bd87e25",
+    "content-hash": "fca83c052c959e52782ae41059c9e015",
     "packages": [
         {
             "name": "barryvdh/laravel-dompdf",
@@ -61,6 +61,80 @@
                 "pdf"
             ],
             "time": "2018-08-31T13:25:44+00:00"
+        },
+        {
+            "name": "cybercog/laravel-likeable",
+            "version": "3.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/cybercog/laravel-likeable.git",
+                "reference": "bc5b71e435e5705b3015c25918f69b7a204a23dd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/cybercog/laravel-likeable/zipball/bc5b71e435e5705b3015c25918f69b7a204a23dd",
+                "reference": "bc5b71e435e5705b3015c25918f69b7a204a23dd",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/database": "~5.1.20|~5.2|~5.3|~5.4|~5.5",
+                "illuminate/support": "~5.1.20|~5.2|~5.3|~5.4|~5.5",
+                "php": "^5.6|^7.0"
+            },
+            "require-dev": {
+                "friendsofphp/php-cs-fixer": "^1.11",
+                "mockery/mockery": "^0.9.8",
+                "orchestra/database": "~3.4.0|~3.5.0",
+                "orchestra/testbench": "~3.4.0|~3.5.0",
+                "phpunit/phpunit": "^5.7|^6.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Cog\\Likeable\\Providers\\LikeableServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Cog\\Likeable\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Anton Komarev",
+                    "email": "a.komarev@cybercog.su",
+                    "homepage": "http://ell.folio.su",
+                    "role": "Developer"
+                }
+            ],
+            "description": "Make Laravel Eloquent models Likeable & Dislikeable in a minutes!",
+            "homepage": "https://github.com/cybercog/laravel-likeable",
+            "keywords": [
+                "Rate",
+                "Rating",
+                "cog",
+                "cybercog",
+                "dislike",
+                "eloquent",
+                "emotion",
+                "favorite",
+                "favourite",
+                "kudos",
+                "laravel",
+                "likable",
+                "like",
+                "likeable",
+                "star",
+                "trait"
+            ],
+            "abandoned": "cybercog/laravel-love",
+            "time": "2017-12-28T23:45:41+00:00"
         },
         {
             "name": "dnoegel/php-xdg-base-dir",

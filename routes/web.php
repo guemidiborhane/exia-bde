@@ -32,6 +32,7 @@ Route::delete('/comments/{comment?}', 'CommentsController@destroy')->name('comme
 Route::put('/comments/{comment}/restore', 'CommentsController@restore')->name('comments.restore');
 
 Route::post('/users/participate/{event}', 'UsersController@participate')->name('participate');
+Route::post('/users/toggleLike/{event}', 'UsersController@toggleLike')->name('toggleLike');
 Route::get('/users/events', 'UsersController@events')->name('users.events');
 Route::get('/users/reports', 'UsersController@reports')->name('users.reports');
 

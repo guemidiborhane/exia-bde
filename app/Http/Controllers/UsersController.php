@@ -38,6 +38,15 @@ class UsersController extends Controller
         ]);
     }
 
+    public function toggleLike(Request $request, Event $event)
+    {
+        $event->likeToggle();
+
+        return response()->json([
+            'likesCount' => $event->likesCount
+        ]);
+    }
+
     public function events()
     {
         $participations = \Auth::user()->participations()

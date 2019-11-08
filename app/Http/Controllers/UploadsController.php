@@ -23,7 +23,7 @@ class UploadsController extends Controller
         $fileName = pathinfo($request->file->getClientOriginalName(),PATHINFO_FILENAME).'.'.time().'.'.$request->file->getClientOriginalExtension();
 
         $request->file('file')->storeAs(
-            'photos', $fileName
+            'photos', $fileName, 'public'
         );
 
         $photo = new Photo;

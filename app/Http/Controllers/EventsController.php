@@ -77,7 +77,7 @@ class EventsController extends Controller
         }
 
         $fileName = time().'.'.$validatedData['image']->getClientOriginalExtension();
-        $validatedData['image']->storeAs('photos', $fileName);
+        $validatedData['image']->storeAs('photos', $fileName, 'public');
         $validatedData['image'] = $fileName;
         \Auth::user()->events()->create($validatedData);
 
@@ -124,7 +124,7 @@ class EventsController extends Controller
         }
         if ($request->file('image')) {
             $fileName = time().'.'.$request->file('image')->getClientOriginalExtension();
-            $request->file('image')->storeAs('photos', $fileName);
+            $request->file('image')->storeAs('photos', $fileName, 'public');
             $validatedData['image'] = $fileName;
         }
         $event->update($validatedData);

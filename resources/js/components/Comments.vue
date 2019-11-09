@@ -6,7 +6,7 @@
                 <button class="btn" type="button" id="button-addon2" @click.prevent="submit">Envoyer !</button>
             </div>
         </div>
-        <ul class="list-unstyled">
+        <ul class="list-unstyled comments-list">
             <li class="media mb-4" v-for="comment in commentaries" :key="comment.id">
                 <div class="media-body">
                     <h5 class="mt-0 mb-1">
@@ -108,5 +108,9 @@
 </script>
 
 <style lang="scss" scoped>
+    .comments-list {
+        max-height: 250px;
+        overflow-y: auto;
+    }
 </style>
 

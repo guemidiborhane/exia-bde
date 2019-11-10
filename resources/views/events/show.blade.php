@@ -3,7 +3,8 @@
 @section('content')
 <div class="container-fluid px-5 mt-2" id="app">
     <div class="d-flex row event-container ">
-        <div class="col-md-4 px-0 image-container" style="background-image: url('{{ asset('storage/photos/'.$event->image) }}')">
+        <div class="col-md-4 px-0" style="overflow: hidden">
+            <div class="image-container" style="background-image: url('{{ asset('storage/photos/'.$event->image) }}')"></div>
         </div>
         <div class="col-md-8 pt-4 pl-4">
             <h1 class="h1 text-center">

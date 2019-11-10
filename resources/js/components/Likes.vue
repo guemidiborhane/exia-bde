@@ -2,7 +2,7 @@
     <div class="component-container btn-group">
         <a href="#"
             @click.prevent="submit"
-            :class="['submission-btn', 'btn', 'btn-sm', liked ? 'btn-danger' : 'btn-outline-danger']">
+            :class="['submission-btn', 'btn', 'btn-sm', liked ? 'btn-danger' : 'btn-outline-danger', 'mr-2']">
             <i class="fa fa-heart fa-lg"></i>
             <span>{{ likesCount }}</span>
         </a>

@@ -1,5 +1,5 @@
 <!-- Footer -->
-<footer class="page-footer bg-dark text-white pt-4">
+<footer class="page-footer text-white pt-4">
 
     <div class="container text-center text-md-left">
         <div class="row">
@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    <div class="footer-copyright text-center ">© 2018 Copyright:
+    <div class="footer-copyright text-center mb-2">© 2018 Copyright:
         <a href="#" class="text-white"> CESi.exia</a>
     </div>
 </footer>

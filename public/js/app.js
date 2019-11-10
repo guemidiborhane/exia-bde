@@ -56421,7 +56421,8 @@ var render = function() {
           "submission-btn",
           "btn",
           "btn-sm",
-          _vm.liked ? "btn-danger" : "btn-outline-danger"
+          _vm.liked ? "btn-danger" : "btn-outline-danger",
+          "mr-2"
         ],
         attrs: { href: "#" },
         on: {

@@ -82,11 +82,12 @@ body {
 }
 
 footer {
+  background: $blue;
   position: absolute;
   bottom: 0;
   width: 100%;
   .title {
-    color: $warning;
+    color: $jet;
   }
   a {
     color: $white;

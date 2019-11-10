@@ -17,7 +17,9 @@
                     :likes-count="{{ $event->likesCount }}"
                     submit-route="{{ route('toggleLike', compact('event')) }}"></likes-component>
                 @if (Auth::user()->hasRole('bde') || Auth::user()->events()->where('events.id', $event->id)->exists())
-                    <a href="{{ route('events.edit', compact('event')) }}" class="btn btn-success btn-sm">Editer</a>
+                    <a href="{{ route('events.edit', compact('event')) }}" class="btn btn-success btn-sm">
+                        Editer
+                    </a>
                 @endif
                 @if (Auth::user()->hasRole('staff'))
                     <a href="{{ route('events.destroy', compact('event')) }}"

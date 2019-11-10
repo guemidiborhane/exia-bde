@@ -10,7 +10,7 @@
     @endif
     @auth
         <div class="col-md-12 text-right px-0">
-            <a href="{{ route('events.create') }}" class="btn btn-primary mb-2 text-right">Ajouter</a>
+            <a href="{{ route('events.create') }}" class="btn btn-primary bg-primary mb-2 text-right">Ajouter</a>
         </div>
     @endauth
         <ul class="list-unstyled">

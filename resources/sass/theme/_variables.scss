@@ -17,27 +17,30 @@ $gray-800: #343a40 !default;
 $gray-900: #1a1a1a !default;
 $black:    #000 !default;
 
-$blue:    #007bff !default;
+$blue:    #5D89DA !default;
 $indigo:  #6610f2 !default;
 $purple:  #6f42c1 !default;
 $pink:    #e83e8c !default;
 $red:     #d9534f !default;
 $orange:  #fd7e14 !default;
-$yellow:  #f0ad4e !default;
+$yellow:  #D1E000 !default;
 $green:   #4BBF73 !default;
 $teal:    #20c997 !default;
-$cyan:    #1F9BCF !default;
+$cyan:    #00A390 !default;
+$jet :    #303633 !default;
 
-$primary:       $gray-900 !default;
-$secondary:     $white !default;
+
+$primary:       $blue !default;
+$secondary:     $black !default;
 $success:       $green !default;
 $info:          $cyan !default;
-$warning:       $yellow !default;
+$warning:       $jet !default;
 $danger:        $red !default;
 $light:         $white !default;
 $dark:          $gray-800 !default;
 
 $yiq-contrasted-threshold:  185 !default;
+
 
 // Body
 
@@ -68,6 +71,8 @@ $headings-color:              $gray-900 !default;
 // Tables
 
 $table-border-color:          rgba(0, 0, 0, 0.05) !default;
+$table-dark-bg:               $primary !default;
+$table-dark-border-color:     darken($primary, 7.5%);
 
 // Buttons + Forms
 

@@ -1819,7 +1819,7 @@ pre code {
 .table .thead-dark th {
   color: #ffffff;
   background-color: #5D89DA;
-  border-color: #3e72d3;
+  border-color: #7ca0e1;
 }
 
 .table .thead-light th {
@@ -1836,7 +1836,7 @@ pre code {
 .table-dark th,
 .table-dark td,
 .table-dark thead th {
-  border-color: #3e72d3;
+  border-color: #7ca0e1;
 }
 
 .table-dark.table-bordered {

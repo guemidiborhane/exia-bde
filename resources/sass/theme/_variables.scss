@@ -72,7 +72,7 @@ $headings-color:              $gray-900 !default;
 
 $table-border-color:          rgba(0, 0, 0, 0.05) !default;
 $table-dark-bg:               $primary !default;
-$table-dark-border-color:     darken($primary, 7.5%);
+$table-dark-border-color:     lighten($primary, 7.5%);
 
 // Buttons + Forms
 

@@ -37,3 +37,13 @@ Route::get('/users/events', 'UsersController@events')->name('users.events');
 Route::get('/users/reports', 'UsersController@reports')->name('users.reports');
 
 Auth::routes();
+
+ 
+ 
+Route::get('products', 'ProductsController@index')->name('products.index');
+Route::get('cart', 'ProductsController@cart')->name('cart');
+Route::get('add-to-cart/{id}', 'ProductsController@addToCart')->name('products.addToCart');
+
+Route::patch('update-cart', 'ProductsController@update')->name('update-cart');
+ 
+Route::delete('remove-from-cart', 'ProductsController@remove')->name('remove-from-cart');

@@ -30,7 +30,7 @@
                     <a class="nav-link" href="{{ route('events', ['type' => 'suggestions']) }}">Boite à idée</a>
                 </li>
                 <li class="nav-item">
-                    <a href="#" class="nav-link">Boutique</a>
+                    <a href="{{ route('products.index') }}" class="nav-link">Boutique</a>
                 </li>
             </ul>
         </div>

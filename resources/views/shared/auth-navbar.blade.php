@@ -33,6 +33,7 @@
                         <a href="{{ route('users.events') }}" class="dropdown-item">{{ __('Mes évènemnts') }}</a>
                         @if (Auth::user()->hasRole('bde'))
                             <a href="{{ route('users.reports') }}" class="dropdown-item">{{ __('Signalements') }}</a>
+                            <a href="{{ route('users.index') }}" class="dropdown-item">{{ __('Utilisateurs') }}</a>
                         @endif
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{ route('logout') }}"

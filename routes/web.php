@@ -35,6 +35,8 @@ Route::post('/users/participate/{event}', 'UsersController@participate')->name('
 Route::post('/users/toggleLike/{event}', 'UsersController@toggleLike')->name('toggleLike');
 Route::get('/users/events', 'UsersController@events')->name('users.events');
 Route::get('/users/reports', 'UsersController@reports')->name('users.reports');
+Route::get('/users', 'UsersController@index')->name('users.index');
+Route::put('/users/{user}', 'UsersController@update')->name('users.update');
 
 Auth::routes();
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Event;
+use App\User;
 
 class UsersController extends Controller
 {
@@ -61,5 +62,25 @@ class UsersController extends Controller
         $events = \App\Event::onlyTrashed()->get();
         $comments = \App\Comment::onlyTrashed()->get();
         return view('users.reports', compact('events', 'comments'));
+    }
+
+
+    public function index()
+    {
+        if (\Auth::user()->hasRole('bde')) {
+            $users = User::all();
+            $roles = array_values(User::getPossibleEnumValues('role'));
+            return view('users.index', compact('users', 'roles'));
+        } else {
+            return redirect()->route('home');
+        }
+    }
+
+    public function update(Request $request, User $user)
+    {
+        $user->role = $request->input('role');
+        $user->save();
+
+        return redirect()->route('users.index');
     }
 }

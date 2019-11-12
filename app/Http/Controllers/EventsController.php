@@ -6,6 +6,7 @@ use App\Event;
 use Illuminate\Http\Request;
 use App\Http\Requests\EventRequest;
 use Illuminate\Support\Facades\Storage;
+use App\Notifications\EventPromoted;
 
 class EventsController extends Controller
 {
@@ -119,14 +120,20 @@ class EventsController extends Controller
 
         if ($request->input('status') === null) {
             $validatedData['status'] = null;
+            if ($event->status === 1) {
+                $author = $event->author;
+                $author->notify(new EventPromoted($event));
+            }
         } elseif ($request->input('status') === 'on') {
             $validatedData['status'] = 1;
         }
+
         if ($request->file('image')) {
             $fileName = time().'.'.$request->file('image')->getClientOriginalExtension();
             $request->file('image')->storeAs('photos', $fileName, 'public');
             $validatedData['image'] = $fileName;
         }
+        
         $event->update($validatedData);
 
         return redirect()->route('home');

@@ -1,16 +1,8 @@
-<nav class="navbar navbar-expand-md bg-light user-navbar p-0">
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-        <span class="navbar-toggler-icon"></span>
-    </button>
+<nav class="navbar navbar-expand-md bg-light user-navbar p-0 auth-navbar justify-content-end">
 
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <!-- Left Side Of Navbar -->
-        <ul class="navbar-nav mr-auto">
-
-        </ul>
-
+    <div class="navbar-container" id="authNavbar">
         <!-- Right Side Of Navbar -->
-        <ul class="navbar-nav ml-auto">
+        <ul class="navbar-nav">
             <!-- Authentication Links -->
             @guest
                 <li class="nav-item">

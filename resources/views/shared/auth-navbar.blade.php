@@ -31,6 +31,7 @@
                     </a>
                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                         <a href="{{ route('users.events') }}" class="dropdown-item">{{ __('Mes évènemnts') }}</a>
+                        <a href="{{ route('cart') }}" class="dropdown-item">{{ __('Panier') }}</a>
                         @if (Auth::user()->hasRole('bde'))
                             <a href="{{ route('users.reports') }}" class="dropdown-item">{{ __('Signalements') }}</a>
                             <a href="{{ route('users.index') }}" class="dropdown-item">{{ __('Utilisateurs') }}</a>

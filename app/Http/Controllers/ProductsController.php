@@ -16,12 +16,12 @@ class ProductsController extends Controller
         } else {
             $products = Product::where('category', $category)->get();
         }
-        return view('products', compact('products'));
+        return view('products.index', compact('products'));
     }
  
     public function cart()
     {
-        return view('cart');
+        return view('products.cart');
     }
 
     public function addToCart($id)

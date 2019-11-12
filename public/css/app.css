@@ -9660,6 +9660,10 @@ th {
   color: inherit;
 }
 
+.toggler-icon {
+  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(39, 38, 39, 0.7)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+}
+
 html {
   height: 100%;
   box-sizing: border-box;
@@ -9671,7 +9675,7 @@ html {
   box-sizing: inherit;
 }
 
-@media (min-width: 765px) {
+@media (min-width: 768px) {
   body {
     position: relative;
     margin: 0;
@@ -9680,7 +9684,7 @@ html {
   }
 }
 
-@media (max-width: 764px) {
+@media (max-width: 767px) {
   body {
     display: flex;
     flex-direction: column;
@@ -9741,7 +9745,7 @@ html {
   margin: 0 auto;
 }
 
-@media (min-width: 765px) {
+@media (min-width: 768px) {
   footer {
     background: #5D89DA;
     position: absolute;
@@ -9763,7 +9767,7 @@ html {
   }
 }
 
-@media (max-width: 764px) {
+@media (max-width: 767px) {
   footer {
     background: #5D89DA;
     flex-grow: 1;
@@ -9977,6 +9981,21 @@ html {
 
   table#cart tfoot td .btn {
     display: block;
+  }
+}
+
+@media (max-width: 767px) {
+  .auth-navbar {
+    margin-bottom: 2rem;
+    z-index: 10;
+  }
+
+  .auth-navbar .navbar-container {
+    margin: 0 auto;
+  }
+
+  .auth-navbar .navbar-container a.nav-link.dropdown-toggle {
+    padding: 0;
   }
 }
 

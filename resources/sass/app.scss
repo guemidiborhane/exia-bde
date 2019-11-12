@@ -300,3 +300,17 @@ footer {
   table#cart tfoot td .btn{display:block;}
 
 }
+
+@include md{
+  .auth-navbar{
+    margin-bottom: 2rem;
+    z-index: 10;
+    .navbar-container {
+      margin: 0 auto;
+      a.nav-link.dropdown-toggle {
+        padding: 0;
+      }
+    }
+  }
+  
+}

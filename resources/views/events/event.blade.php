@@ -46,14 +46,16 @@
             </div>
             @auth
                 <div class="col-md-8 text-right pr-4">
-                    @if ($event->planned_on >= today())
-                        <participate-component
-                            :event-id="{{ $event->id }}"
-                            :participates="{{ $event->participates }}"
-                            :participants-count="{{ $event->participants()->count() }}"
-                            submit-route="{{ route('participate', ['event_id' => $event->id]) }}"></participate-component>
-                    @else
-                        <span class="btn btn-sm btn-outline-danger disabled">Évènement terminé</span>
+                    @if($event->status === null)
+                        @if ($event->planned_on >= today())
+                            <participate-component
+                                :event-id="{{ $event->id }}"
+                                :participates="{{ $event->participates }}"
+                                :participants-count="{{ $event->participants()->count() }}"
+                                submit-route="{{ route('participate', ['event_id' => $event->id]) }}"></participate-component>
+                        @else
+                            <span class="btn btn-sm btn-outline-danger disabled">Évènement terminé</span>
+                        @endif
                     @endif
                 </div>
             @endauth

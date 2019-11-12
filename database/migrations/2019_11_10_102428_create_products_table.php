@@ -15,6 +15,7 @@ class CreateProductsTable extends Migration
     {
         Schema::create('products', function (Blueprint $table) {
             $table->increments('id');
+            $table->enum('category', ['swagg', 'goodies'])->index();
             $table->string("name", 255)->nullable();
             $table->text("description")->nullable();
             $table->string("photo", 255)->nullable();

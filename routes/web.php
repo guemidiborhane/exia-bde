@@ -42,9 +42,9 @@ Auth::routes();
 
  
  
-Route::get('products', 'ProductsController@index')->name('products.index');
-Route::get('cart', 'ProductsController@cart')->name('cart');
-Route::get('add-to-cart/{id}', 'ProductsController@addToCart')->name('products.addToCart');
+Route::get('/products/{category?}', 'ProductsController@index')->name('products.index');
+Route::get('/cart', 'ProductsController@cart')->name('cart');
+Route::get('/add-to-cart/{id}', 'ProductsController@addToCart')->name('products.addToCart');
 
 Route::patch('update-cart', 'ProductsController@update')->name('update-cart');
  

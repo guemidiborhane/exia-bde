@@ -1,15 +1,7 @@
 <?php
-use Carbon\Carbon;
 
 Route::redirect('/home', '/', 301);
-Route::get('/', function () {
-    $week_ends_at = Carbon::now()->endOfWeek()->toDateString();
-    $coming_events = App\Event::whereRaw('planned_on >= ? AND planned_on <= ? AND status IS NULL', [today(), $week_ends_at])->get();
-    $past_events = App\Event::whereRaw('planned_on < ?', today())->limit(5)->get();
-
-    $comments = App\Comment::orderBy('created_at')->limit(15)->get();
-    return view('welcome', compact('coming_events', 'past_events', 'comments'));
-})->name('home');
+Route::get('/', 'HomeController@index')->name('home');
 
 Route::get('mib', function () {
     return response()->view('mib')->header("Refresh", "1;url=".route('users.reports'));
@@ -40,8 +32,8 @@ Route::put('/users/{user}', 'UsersController@update')->name('users.update');
 
 Auth::routes();
 
- 
- 
+
+
 Route::get('/products/{category?}', 'ProductsController@index')->name('products.index');
 
 Route::get('/cart', 'CartController@index')->name('cart');

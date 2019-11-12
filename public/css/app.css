@@ -9671,11 +9671,21 @@ html {
   box-sizing: inherit;
 }
 
-body {
-  position: relative;
-  margin: 0;
-  padding-bottom: 25rem;
-  min-height: 100%;
+@media (min-width: 765px) {
+  body {
+    position: relative;
+    margin: 0;
+    padding-bottom: 25rem;
+    min-height: 100%;
+  }
+}
+
+@media (max-width: 764px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 }
 
 .user-navbar {
@@ -9731,24 +9741,50 @@ body {
   margin: 0 auto;
 }
 
-footer {
-  background: #5D89DA;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
+@media (min-width: 765px) {
+  footer {
+    background: #5D89DA;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  footer .title {
+    color: #303633;
+  }
+
+  footer a {
+    color: #fff;
+  }
+
+  footer a:hover {
+    text-decoration: none !important;
+    color: #eb7500;
+  }
 }
 
-footer .title {
-  color: #303633;
-}
+@media (max-width: 764px) {
+  footer {
+    background: #5D89DA;
+    flex-grow: 1;
+    position: static;
+    width: 100%;
+    bottom: 0;
+    padding: 2px;
+  }
 
-footer a {
-  color: #fff;
-}
+  footer .title {
+    color: #303633;
+  }
 
-footer a:hover {
-  text-decoration: none !important;
-  color: #eb7500;
+  footer a {
+    color: #fff;
+  }
+
+  footer a:hover {
+    text-decoration: none !important;
+    color: #eb7500;
+  }
 }
 
 .cookies-banner {

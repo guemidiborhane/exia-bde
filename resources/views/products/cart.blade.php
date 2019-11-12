@@ -33,7 +33,7 @@
                     </td>
                     <td data-th="Price">${{ $details['price'] }}</td>
                     <td data-th="Quantity">
-                        <form action="{{ route('update-cart') }}" method="post">
+                        <form action="{{ route('cart.update') }}" method="post">
                             @csrf
                             @method('PATCH')
                             <input type="hidden" name="id" value="{{ $id }}">
@@ -45,7 +45,7 @@
                     </td>
                     <td data-th="Subtotal" class="text-center">${{ $details['price'] * $details['quantity'] }}</td>
                     <td class="actions" data-th="">
-                        <form action="{{ route('remove-from-cart') }}" method="POST">
+                        <form action="{{ route('cart.destroy') }}" method="POST">
                             @csrf
                             @method('DELETE')
                             <input type="hidden" name="id" value="{{ $id }}">

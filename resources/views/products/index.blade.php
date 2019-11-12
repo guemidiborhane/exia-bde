@@ -17,7 +17,11 @@
                     </div>
                     <div class="card-footer text-center mt-4">
                         {{ $product->price }}$
-                        <a href="{{ route('products.addToCart', ['id' => $product->id ]) }}" class="btn btn-warning btn-block text-center" role="button">Add to cart</a> 
+                        <form action="{{ route('cart.store') }}" method="post">
+                            @csrf
+                            <input type="hidden" name="id" value="{{ $product->id }}">
+                            <button class="btn btn-warning btn-block text-center" role="button">Add to cart</button> 
+                        </form>
                     </div>
                 </div>
             @endforeach

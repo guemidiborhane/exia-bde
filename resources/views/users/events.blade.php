@@ -10,7 +10,7 @@
             @endforeach
         </ul>
 
-        <h5>Mes évènements</h5>
+        <h5>My events</h5>
         <hr>
         <ul class="list-unstyled">
             @foreach($events as $event)

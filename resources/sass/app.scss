@@ -13,14 +13,19 @@
 // @import '~datatables.net-bs4/css/dataTables.bootstrap4.min.css';
 
 //media queries
+@mixin sm {
+  @media (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
 @mixin md {
   @media (max-width: #{$screen-md-max}) {
-      @content;
+    @content;
   }
 }
 @mixin lg {
   @media (min-width: #{$screen-lg-min}) {
-      @content;
+    @content;
   }
 }
 //css
@@ -102,38 +107,43 @@ body {
 
 footer {
   @include lg{
-  background: $blue;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  .title {
-    color: $jet;
-  }
-  a {
-    color: $white;
-    &:hover {
-      text-decoration: none !important;
-      color: $warning;
+    background: $blue;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    .title {
+      color: $jet;
+    }
+
+    a {
+      color: $white;
+      &:hover {
+        text-decoration: none !important;
+        color: $warning;
+      }
     }
   }
-  }
+
   @include md{
     background: $blue;
-  flex-grow: 1;
-  position: static;
-  width: 100%;
-  bottom: 0;
-  padding: 2px;
-  .title {
-    color: $jet;
-  }
-  a {
-    color: $white;
-    &:hover {
-      text-decoration: none !important;
-      color: $warning;
+    flex-grow: 1;
+    position: static;
+    width: 100%;
+    bottom: 0;
+    padding: 2px;
+
+    .title {
+      color: $jet;
     }
-  }
+
+    a {
+      color: $white;
+      &:hover {
+        text-decoration: none !important;
+        color: $warning;
+      }
+    }
   }
 }
 
@@ -293,12 +303,8 @@ footer {
       content: attr(data-th); font-weight: bold;
       display: inline-block; width: 8rem;
   }
-
-
-
   table#cart tfoot td{display:block; }
   table#cart tfoot td .btn{display:block;}
-
 }
 
 @include md{
@@ -312,5 +318,28 @@ footer {
       }
     }
   }
-  
+
+}
+
+.nav-item:hover {
+  background: $blue;
+  &>a {
+    color: $white;
+  }
+}
+@include sm {
+  .table{
+    display: none;
+  }
+  .carousel{
+    display: none;
+  }
+}
+
+
+.product-card {
+  transition: all 0.2s ease;
+  &:hover {
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
+  }
 }

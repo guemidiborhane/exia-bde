@@ -138,7 +138,7 @@ class EventsController extends Controller
             $request->file('image')->storeAs('photos', $fileName, 'public');
             $validatedData['image'] = $fileName;
         }
-        
+
         $event->update($validatedData);
 
         return redirect()->route('home');
@@ -177,7 +177,7 @@ class EventsController extends Controller
     public function participants(Event $event)
     {
         $participants = $event->participants;
-        $pdf = \PDF::loadView('pdf.participants', compact('participants'));
+        $pdf = \PDF::loadView('pdf.participants', compact('participants', 'event'));
         return $pdf->download($event->name.' - Participants.pdf');
     }
 }

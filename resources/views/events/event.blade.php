@@ -52,7 +52,7 @@
                                 :event-id="{{ $event->id }}"
                                 :participates="{{ $event->participates }}"
                                 :participants-count="{{ $event->participants()->count() }}"
-                                submit-route="{{ route('participate', ['event_id' => $event->id]) }}"></participate-component>
+                                submit-route="{{ route('participate', compact('event')) }}"></participate-component>
                         @else
                             <span class="btn btn-sm btn-outline-danger disabled">Past Event     </span>
                         @endif

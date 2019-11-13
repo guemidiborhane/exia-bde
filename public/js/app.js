@@ -1384,7 +1384,7 @@ module.exports = function spread(callback) {
 
 
 var bind = __webpack_require__(/*! ./helpers/bind */ "./node_modules/axios/lib/helpers/bind.js");
-var isBuffer = __webpack_require__(/*! is-buffer */ "./node_modules/axios/node_modules/is-buffer/index.js");
+var isBuffer = __webpack_require__(/*! is-buffer */ "./node_modules/is-buffer/index.js");
 
 /*global toString:true*/
 
@@ -1688,28 +1688,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/axios/node_modules/is-buffer/index.js":
-/*!************************************************************!*\
-  !*** ./node_modules/axios/node_modules/is-buffer/index.js ***!
-  \************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-/*!
- * Determine if an object is a Buffer
- *
- * @author   Feross Aboukhadijeh <https://feross.org>
- * @license  MIT
- */
-
-module.exports = function isBuffer (obj) {
-  return obj != null && obj.constructor != null &&
-    typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
-}
-
-
-/***/ }),
-
 /***/ "./node_modules/babel-loader/lib/index.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/Comments.vue?vue&type=script&lang=js&":
 /*!*******************************************************************************************************************************************************************!*\
   !*** ./node_modules/babel-loader/lib??ref--4-0!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/Comments.vue?vue&type=script&lang=js& ***!
@@ -1767,7 +1745,7 @@ __webpack_require__.r(__webpack_exports__);
       required: true
     },
     userId: {
-      default: false
+      "default": false
     },
     userRole: {
       type: String
@@ -1805,7 +1783,7 @@ __webpack_require__.r(__webpack_exports__);
       var _this2 = this;
 
       var id = _ref2.id;
-      axios.delete(this.deleteUrl + '/' + id).then(function (response) {
+      axios["delete"](this.deleteUrl + '/' + id).then(function (response) {
         _this2.removeComment(id);
       });
     },
@@ -1823,7 +1801,7 @@ __webpack_require__.r(__webpack_exports__);
       console.log(id);
 
       if (this.userRole === 'staff') {
-        axios.delete(this.deleteUrl + '/' + id, {
+        axios["delete"](this.deleteUrl + '/' + id, {
           data: {
             report: true
           }
@@ -25050,6 +25028,28 @@ function __guardMethod__(obj, methodName, transform) {
 }
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../webpack/buildin/module.js */ "./node_modules/webpack/buildin/module.js")(module)))
+
+/***/ }),
+
+/***/ "./node_modules/is-buffer/index.js":
+/*!*****************************************!*\
+  !*** ./node_modules/is-buffer/index.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+/*!
+ * Determine if an object is a Buffer
+ *
+ * @author   Feross Aboukhadijeh <https://feross.org>
+ * @license  MIT
+ */
+
+module.exports = function isBuffer (obj) {
+  return obj != null && obj.constructor != null &&
+    typeof obj.constructor.isBuffer === 'function' && obj.constructor.isBuffer(obj)
+}
+
 
 /***/ }),
 
@@ -67934,9 +67934,9 @@ window.Vue = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.
 // const files = require.context('./', true, /\.vue$/i)
 // files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default))
 
-Vue.component('participate-component', __webpack_require__(/*! ./components/Participation.vue */ "./resources/js/components/Participation.vue").default);
-Vue.component('comments-component', __webpack_require__(/*! ./components/Comments.vue */ "./resources/js/components/Comments.vue").default);
-Vue.component('likes-component', __webpack_require__(/*! ./components/Likes.vue */ "./resources/js/components/Likes.vue").default);
+Vue.component('participate-component', __webpack_require__(/*! ./components/Participation.vue */ "./resources/js/components/Participation.vue")["default"]);
+Vue.component('comments-component', __webpack_require__(/*! ./components/Comments.vue */ "./resources/js/components/Comments.vue")["default"]);
+Vue.component('likes-component', __webpack_require__(/*! ./components/Likes.vue */ "./resources/js/components/Likes.vue")["default"]);
 /**
  * Next, we will create a fresh Vue application instance and attach it to
  * the page. Then, you may begin adding components to this application
@@ -67964,7 +67964,7 @@ window._ = __webpack_require__(/*! lodash */ "./node_modules/lodash/lodash.js");
  */
 
 try {
-  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js").default;
+  window.Popper = __webpack_require__(/*! popper.js */ "./node_modules/popper.js/dist/esm/popper.js")["default"];
   window.$ = window.jQuery = __webpack_require__(/*! jquery */ "./node_modules/jquery/dist/jquery.js");
   window.Dropzone = __webpack_require__(/*! dropzone */ "./node_modules/dropzone/dist/dropzone.js");
   Dropzone.autoDiscover = false; // var dt = require('datatables.net')($);

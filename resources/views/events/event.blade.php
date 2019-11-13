@@ -14,7 +14,7 @@
                 <likes-component
                     :event-id="{{ $event->id }}"
                     :liked="{{ ($event->liked) ? 'true' : 'false' }}"
-                    :likes-count="{{ $event->likesCount }}"
+                    :likes-count="{{ $event->likeCount }}"
                     submit-route="{{ route('toggleLike', compact('event')) }}"></likes-component>
                 @if (Auth::user()->hasRole('bde') || Auth::user()->events()->where('events.id', $event->id)->exists())
                     <a href="{{ route('events.edit', compact('event')) }}" class="btn btn-success btn-sm">

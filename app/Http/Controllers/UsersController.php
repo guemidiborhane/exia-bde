@@ -41,10 +41,14 @@ class UsersController extends Controller
 
     public function toggleLike(Request $request, Event $event)
     {
-        $event->likeToggle();
+        if ($event->liked()) {
+            $event->unlike();
+        } else {
+            $event->like();
+        }
 
         return response()->json([
-            'likesCount' => $event->likesCount
+            'likesCount' => $event->likeCount
         ]);
     }
 

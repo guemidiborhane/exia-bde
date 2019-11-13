@@ -18,7 +18,7 @@
                 <likes-component
                         :event-id="{{ $event->id }}"
                         :liked="{{ ($event->liked) ? 'true' : 'false' }}"
-                        :likes-count="{{ $event->likesCount }}"
+                        :likes-count="{{ $event->likeCount }}"
                         submit-route="{{ route('toggleLike', compact('event')) }}"></likes-component>
                 @endauth
             </div>

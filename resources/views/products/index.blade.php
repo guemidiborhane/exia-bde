@@ -1,9 +1,9 @@
 @extends('layouts.app')
- 
+
 @section('title', 'Products')
- 
+
 @section('content')
- 
+
     <div class="container products">
         <a href="{{route('products.create')}}" class="btn btn-link d-block mx-auto">Ajouter</a>
         <div class="card-deck">
@@ -14,28 +14,33 @@
                         <h4 class="card-title">{{ $product->name }}</h4>
                         <p class="card-text">
                             {{ $product->description }}
-                        </p> 
+                        </p>
                     </div>
                     <div class="card-footer text-center mt-4">
                         {{ $product->price }}$
                         <form action="{{ route('cart.store') }}" method="post">
                             @csrf
                             <input type="hidden" name="id" value="{{ $product->id }}">
-                            <button class="btn btn-warning btn-block text-center" role="button">Add to cart</button> 
+                            <button class="btn btn-warning btn-block text-center" role="button">Add to cart</button>
                         </form>
+                        @auth
+                            @if(Auth::user()->hasRole('bde'))
+                        <div class="btn-group">
+                            <form action="{{ route('products.destroy', $product->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <button class="btn btn-danger" type="submit">Delete</button>
+                            </form>
 
-                        <form action="{{ route('products.destroy', $product->id)}}" method="post">
-                            @csrf
-                            @method('DELETE')
-                            <button class="btn btn-danger" type="submit">Delete</button>
-                        </form>
-
-                        <a href="{{ route('products.edit', compact('product')) }}" class="btn btn-link">Edit</a>
+                            <a href="{{ route('products.edit', compact('product')) }}" class="btn btn-link">Edit</a>
+                        </div>
+                            @endif
+                        @endauth
                     </div>
                 </div>
             @endforeach
         </div><!-- End row -->
- 
+
     </div>
- 
+
 @endsection

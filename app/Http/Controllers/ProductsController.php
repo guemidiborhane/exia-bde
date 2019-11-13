@@ -1,16 +1,15 @@
 <?php
- 
+
 namespace App\Http\Controllers;
- 
+
 use Illuminate\Http\Request;
 use App\Product;
- 
+
 class ProductsController extends Controller
 {
- 
-   
+
     public function index($category = null)
-    {   
+    {
         if ($category === null) {
             $products = Product::all();
         } else {
@@ -53,7 +52,8 @@ class ProductsController extends Controller
             'category' => 'request'->get('category')
         ]);
         $product->save();
-        return redirect('/products')->with('success', 'Contact saved!');
+
+        return redirect()->route('products.index')->with('success', 'Contact saved!');
     }
 
     /**
@@ -108,7 +108,7 @@ class ProductsController extends Controller
         $product->category = $request->get('category');
         $product->save();
 
-        return redirect('/products')->with('success', 'products updated!');
+        return redirect()->route('products.index', ['category' => $product->category])->with('success', 'products updated!');
     }
 
     /**
@@ -122,6 +122,6 @@ class ProductsController extends Controller
         $product = product::find($id);
         $product->delete();
 
-        return redirect('/products')->with('success', 'product deleted!');
+        return redirect()->route('products.index')->with('success', 'product deleted!');
     }
 }

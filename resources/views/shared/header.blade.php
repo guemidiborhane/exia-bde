@@ -7,27 +7,27 @@
         <a class="navbar-brand" href="{{ route('home') }}">
             <img src="{{ asset('img/cesi-logo.png') }}" alt="CESi" height="76">
         </a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#mainNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon toggler-icon"></span>
         </button>
 
-        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <div class="collapse navbar-collapse" id="mainNavbar">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">Accueil</a>
+                    <a class="nav-link" href="{{ route('home') }}">HOME</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Évènements
+                        Events
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('events', ['type' => 'month']) }}">Du mois</a>
-                        <a class="dropdown-item" href="{{ route('events', ['type' => 'past']) }}">Passés</a>
-                        <a class="dropdown-item" href="{{ route('events', ['type' => 'future']) }}">Future</a>
+                        <a class="dropdown-item" href="{{ route('events', ['type' => 'month']) }}">This month</a>
+                        <a class="dropdown-item" href="{{ route('events', ['type' => 'past']) }}">Past</a>
+                        <a class="dropdown-item" href="{{ route('events', ['type' => 'future']) }}">Futur</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('events', ['type' => 'suggestions']) }}">Boite à idée</a>
+                    <a class="nav-link" href="{{ route('events', ['type' => 'suggestions']) }}">IDEA BOX</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -12,6 +12,23 @@
 @import '~dropzone/dist/min/dropzone.min.css';
 // @import '~datatables.net-bs4/css/dataTables.bootstrap4.min.css';
 
+//media queries
+@mixin sm {
+  @media (max-width: #{$screen-sm-max}) {
+    @content;
+  }
+}
+@mixin md {
+  @media (max-width: #{$screen-md-max}) {
+    @content;
+  }
+}
+@mixin lg {
+  @media (min-width: #{$screen-lg-min}) {
+    @content;
+  }
+}
+//css
 html {
   height: 100%;
   box-sizing: border-box;
@@ -24,10 +41,17 @@ html {
 }
 
 body {
+  @include lg{
   position: relative;
   margin: 0;
   padding-bottom: 25rem;
   min-height: 100%;
+  }
+  @include md{
+    display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  }
 }
 
 .user-navbar {
@@ -82,22 +106,46 @@ body {
 }
 
 footer {
-  background: $blue;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  .title {
-    color: $jet;
+  @include lg{
+    background: $blue;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    .title {
+      color: $jet;
+    }
+
+    a {
+      color: $white;
+      &:hover {
+        text-decoration: none !important;
+        color: $warning;
+      }
+    }
   }
-  a {
-    color: $white;
-    &:hover {
-      text-decoration: none !important;
-      color: $warning;
+
+  @include md{
+    background: $blue;
+    flex-grow: 1;
+    position: static;
+    width: 100%;
+    bottom: 0;
+    padding: 2px;
+
+    .title {
+      color: $jet;
+    }
+
+    a {
+      color: $white;
+      &:hover {
+        text-decoration: none !important;
+        color: $warning;
+      }
     }
   }
 }
-
 
 
 .cookies-banner {
@@ -235,7 +283,7 @@ footer {
 @media screen and (max-width: 600px) {
   table#cart tbody td .form-control{
       width:20%;
-       }
+  }
   .actions .btn{
       width:36%;
       margin:1.5em 0;
@@ -255,11 +303,21 @@ footer {
       content: attr(data-th); font-weight: bold;
       display: inline-block; width: 8rem;
   }
-
-
-
   table#cart tfoot td{display:block; }
   table#cart tfoot td .btn{display:block;}
+}
+
+@include md{
+  .auth-navbar{
+    margin-bottom: 2rem;
+    z-index: 10;
+    .navbar-container {
+      margin: 0 auto;
+      a.nav-link.dropdown-toggle {
+        padding: 0;
+      }
+    }
+  }
 
 } 
 
@@ -267,5 +325,13 @@ footer {
   background: $blue;
   &>a {
     color: $white;
+  }
+}
+@include sm {
+  .table{
+    display: none;
+  }
+  .carousel{
+    display: none;
   }
 }

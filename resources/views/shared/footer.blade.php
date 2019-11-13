@@ -36,7 +36,7 @@
         </div>
     </div>
 
-    <div class="footer-copyright text-center mb-2">© 2018 Copyright:
+    <div class="footer-copyright text-center mb-2">© 2019 Copyright:
         <a href="#" class="text-white"> CESi.exia</a>
     </div>
 </footer>

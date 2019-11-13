@@ -14,11 +14,11 @@
                 <likes-component
                     :event-id="{{ $event->id }}"
                     :liked="{{ ($event->liked) ? 'true' : 'false' }}"
-                    :likes-count="{{ $event->likesCount }}"
+                    :likes-count="{{ $event->likeCount }}"
                     submit-route="{{ route('toggleLike', compact('event')) }}"></likes-component>
                 @if (Auth::user()->hasRole('bde') || Auth::user()->events()->where('events.id', $event->id)->exists())
                     <a href="{{ route('events.edit', compact('event')) }}" class="btn btn-success btn-sm">
-                        Editer
+                        Edit
                     </a>
                 @endif
                 @if (Auth::user()->hasRole('staff'))
@@ -46,14 +46,16 @@
             </div>
             @auth
                 <div class="col-md-8 text-right pr-4">
-                    @if ($event->planned_on >= today())
-                        <participate-component
-                            :event-id="{{ $event->id }}"
-                            :participates="{{ $event->participates }}"
-                            :participants-count="{{ $event->participants()->count() }}"
-                            submit-route="{{ route('participate', ['event_id' => $event->id]) }}"></participate-component>
-                    @else
-                        <span class="btn btn-sm btn-outline-danger disabled">Évènement terminé</span>
+                    @if($event->status === null)
+                        @if ($event->planned_on >= today())
+                            <participate-component
+                                :event-id="{{ $event->id }}"
+                                :participates="{{ $event->participates }}"
+                                :participants-count="{{ $event->participants()->count() }}"
+                                submit-route="{{ route('participate', compact('event')) }}"></participate-component>
+                        @else
+                            <span class="btn btn-sm btn-outline-danger disabled">Past Event     </span>
+                        @endif
                     @endif
                 </div>
             @endauth

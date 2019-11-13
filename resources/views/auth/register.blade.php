@@ -10,12 +10,12 @@
                         @csrf
 
                         <div class="form-group row">
-                            <label for="fname" class="col-md-4 col-form-label text-md-right">{{ __('Prénom') }}</label>
+                            <label for="fname" class="col-md-4 col-form-label text-md-right">{{ __('First name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="fname" type="text" class="form-control{{ $errors->has('fname') ? ' is-invalid' : '' }}" name="fname" value="{{ old('fname') }}" required autofocus>
 
-                                @if ($errors->has('fname'))
+                                @if ($errors->has('fname'))x
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('fname') }}</strong>
                                     </span>
@@ -23,7 +23,7 @@
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="lname" class="col-md-4 col-form-label text-md-right">{{ __('Nom') }}</label>
+                            <label for="lname" class="col-md-4 col-form-label text-md-right">{{ __('Last name') }}</label>
 
                             <div class="col-md-6">
                                 <input id="lname" type="text" class="form-control{{ $errors->has('lname') ? ' is-invalid' : '' }}" name="lname" value="{{ old('lname') }}" required autofocus>
@@ -51,7 +51,7 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Mot de passe') }}</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
@@ -65,18 +65,18 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Mot de passe (encore)') }}</label>
+                            <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ __('Password (again)') }}</label>
 
                             <div class="col-md-6">
                                 <input id="password-confirm" type="password" class="form-control" name="password_confirmation" required>
                             </div>
                         </div>
                         <div class="form-group row">
-                            <label for="center" class="col-md-4 col-form-label text-md-right">{{ __('Centre') }}</label>
+                            <label for="center" class="col-md-4 col-form-label text-md-right">{{ __('Campus') }}</label>
 
                             <div class="col-md-6">
                                 <select name="center" id="center" class="form-control">
-                                    <option value="1">Alger</option>
+                                    <option value="1">Algiers</option>
                                     <option value="2">Oran</option>
                                 </select>
                             </div>
@@ -87,7 +87,7 @@
                                     <input class="form-check-input" type="checkbox" name="legal-mentions" id="legal-mentions">
 
                                     <label class="form-check-label" for="legal-mentions">
-                                        {{ __('J\'accepte les') }} <a href="https://www.cesi.fr/mentions-legales/" target="_blank">Mentions légales</a>
+                                        {{ __('I accept') }} <a href="https://www.cesi.fr/mentions-legales/" target="_blank">The terms and conditions</a>
                                     </label>
                                 </div>
 
@@ -101,7 +101,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary btn-block">
-                                    {{ __('S\'inscrire') }}
+                                    {{ __('Sign up') }}
                                 </button>
                             </div>
                         </div>

@@ -5,10 +5,9 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
-use Cog\Likeable\Contracts\Likeable as LikeableContract;
-use Cog\Likeable\Traits\Likeable;
+use Conner\Likeable\Likeable;
 
-class Event extends Model implements LikeableContract
+class Event extends Model
 {
     use Likeable;
     use SoftDeletes;

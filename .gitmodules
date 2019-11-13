@@ -1,0 +1,3 @@
+[submodule "node-api"]
+	path = node-api
+	url = git@github.com:hichemsoum/exia-bde-api.git

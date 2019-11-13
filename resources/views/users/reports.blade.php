@@ -6,15 +6,15 @@
         <thead class="thead-dark">
             <tr>
                 <th>Type</th>
-                <th>Définition</th>
-                <th>Auteur</th>
-                <th colspan="2" class="text-center">Opérations</th>
+                <th>Definition</th>
+                <th>Autor</th>
+                <th colspan="2" class="text-center">Operations</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($events as $event)
                 <tr id="event-item-{{$event->id}}">
-                    <td>Évènement</td>
+                    <td>EVENT</td>
                     <td>{{ $event->name }}</td>
                     <td>{{ $event->author->fname }} {{ $event->author->lname }}</td>
                     <td class="text-center">
@@ -36,7 +36,7 @@
             @endforeach
             @foreach ($comments as $comment)
                 <tr id="comment-item-{{$comment->id}}">
-                    <td>Commentaire</td>
+                    <td>Comments</td>
                     <td>{{ $comment->body }}</td>
                     <td>{{ $comment->user->fname }} {{ $comment->user->lname }}</td>
                     <td class="text-center">

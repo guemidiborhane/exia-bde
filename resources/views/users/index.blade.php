@@ -4,10 +4,10 @@
 <div class="container">
     <table class="table table-striped table-hover mt-4">
         <tr>
-            <td>Nom</td>
+            <td>Name</td>
             <td>Email</td>
-            <td>Centre</td>
-            <td>Rôle</td>
+            <td>Campus</td>
+            <td>Role</td>
         </tr>
 
         @foreach ($users as $user)

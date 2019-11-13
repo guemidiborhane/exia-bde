@@ -18,16 +18,19 @@
                 <likes-component
                         :event-id="{{ $event->id }}"
                         :liked="{{ ($event->liked) ? 'true' : 'false' }}"
-                        :likes-count="{{ $event->likesCount }}"
+                        :likes-count="{{ $event->likeCount }}"
                         submit-route="{{ route('toggleLike', compact('event')) }}"></likes-component>
                 @endauth
             </div>
             @auth
                 @if (Auth::user()->hasRole('bde'))
-                    <a href="{{ route('events.edit', compact('event')) }}" class="btn btn-link edit-btn">
+                <div class="btn-group edit-btn">
+                    <a href="{{ route('events.edit', compact('event')) }}" class="btn btn-link">
                         <i class="fa fa-pen"></i>
                         {{ __('Edit') }}
                     </a>
+                    <a href="{{ route('events.participants', compact('event')) }}" class="btn btn-link">Participants</a>
+                </div>
                 @endif
             @endauth
             <hr>
@@ -39,7 +42,7 @@
                         (Auth::user()->hasRole('bde') ||
                         json_decode($event->participates) ||
                         $event->user_id === Auth::user()->id))
-                        <a href="{{ route('uploads.create', compact('event')) }}" class="btn btn-link text-right">Ajouter des photos</a>
+                        <a href="{{ route('uploads.create', compact('event')) }}" class="btn btn-link text-right">Add pictures</a>
                     @endif
                 @endauth
             </h5>
@@ -52,9 +55,8 @@
                 @endforeach
                 </div>
             @endif
-
         <h5 class="text-right mb-5">
-            Commentaires <i class="fa fa-comment"></i>
+            Comments <i class="fa fa-comment"></i>
         </h5>
         <comments-component
         @auth

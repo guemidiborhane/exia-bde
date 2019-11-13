@@ -5,11 +5,11 @@
     <div class="container">
         <hr class="my-4">
         @if (sizeof($coming_events))
-        <h2 class="text-center">Évènements prevu cette semaine</h2>
+        <h2 class="text-center">Events planned this week</h2>
         <table class="table table-dark table-striped table-hover mt-4">
             <thead>
                 <tr>
-                    <th scope="col" style="width: 15%">Titre</th>
+                    <th scope="col" style="width: 15%">Title</th>
                     <th scope="col" style="width: 60%">Description</th>
                     <th scope="col" style="width: 15%">Date</th>
                     <th scope="col" class="text-center">Participants</th>
@@ -29,7 +29,7 @@
         @else
             <div class="card bg-dark pt-4 pb-2">
                 <h5 class="text-white text-center">
-                    Rien de prévu cette semaine,
+                   Nothing planned for this week,
                 </h5>
                 <h1 class="text-white text-center">
                     but come back tomorrow !
@@ -38,7 +38,7 @@
         @endif
 
         <hr class="my-4">
-        <h2 class="text-center">Commentaires</h2>
+        <h2 class="text-center">Comments</h2>
 
 
         <div class="card-columns">

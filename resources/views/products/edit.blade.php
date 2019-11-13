@@ -1,8 +1,8 @@
-@extends('layouts.app')
+@extends('layouts.app') 
 @section('content')
 <div class="row">
     <div class="col-sm-8 offset-sm-2">
-        <h1 class="display-3">Update a contact</h1>
+        <h1 class="display-3">Update a product</h1>
 
         @if ($errors->any())
         <div class="alert alert-danger">
@@ -12,10 +12,10 @@
                 @endforeach
             </ul>
         </div>
-        <br />
+        <br /> 
         @endif
         <form method="post" action="{{ route('products.update', $product->id) }}" enctype="multipart/form-data">
-            @method('PATCH')
+            @method('PATCH') 
             @csrf
             <div class="form-group">
 
@@ -38,13 +38,9 @@
             </div>
             <div class="form-group">
                 <label for="category">category:</label>
-                <select name="category" id="category" class="form-control">
-                    @foreach ($categories as $category)
-                        <option value="{{ $category }}" {{ ($product->category === $category) ? 'selected' : '' }}>{{ ucfirst($category) }}</option>
-                    @endforeach
-                </select>
+                <input type="text" class="form-control" name="category" value="{{ $product->category }}" />
             </div>
-
+            
             <button type="submit" class="btn btn-primary">Update</button>
         </form>
     </div>

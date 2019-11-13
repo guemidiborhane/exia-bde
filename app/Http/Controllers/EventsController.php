@@ -3,10 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\User;
+
 use Illuminate\Http\Request;
 use App\Http\Requests\EventRequest;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Notification;
 use App\Notifications\EventPromoted;
+use App\Notifications\NewReport;
+
 
 class EventsController extends Controller
 {
@@ -36,7 +41,7 @@ class EventsController extends Controller
                 $events = $events->whereRaw('YEAR(planned_on) = ? AND MONTH(planned_on) = ?', [$year, $month]);
                 break;
             case 'past':
-                $events = $events->whereRaw('YEAR(planned_on) < ? OR MONTH(planned_on) < ?', [$year, $month]);
+                $events = $events->whereRaw('YEAR(planned_on) <= ? AND MONTH(planned_on) < ?', [$year, $month]);
                 break;
             case 'future':
                 $events = $events->whereRaw('YEAR(planned_on) >= ? AND MONTH(planned_on) > ?', [$year, $month]);
@@ -71,7 +76,7 @@ class EventsController extends Controller
     {
         $validatedData = $request->validated();
 
-        if (\Auth::user()->hasRole('student') || $request->input('status') === 'on') {
+        if (\Auth::user()->hasRole('student') || \Auth::user()->hasRole('staff') || $request->input('status') === 'on') {
             $validatedData['status'] = 1;
         } elseif ($request->input('status') === null) {
             $validatedData['status'] = null;
@@ -149,6 +154,9 @@ class EventsController extends Controller
     {
         if ($event = Event::find($event_id)) {
             $event->delete();
+
+            $bde_members = User::where('role', 'bde')->get();
+            Notification::send($bde_members, new NewReport());
         } elseif ($event = Event::withTrashed()->find($event_id)) {
             $event->participants()->detach();
             $event->forceDelete();

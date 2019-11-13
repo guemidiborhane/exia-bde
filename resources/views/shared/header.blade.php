@@ -14,23 +14,23 @@
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('home') }}">Accueil</a>
+                    <a class="nav-link" href="{{ route('home') }}">HOME</a>
                 </li>
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Évènements
+                        Events
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="{{ route('events', ['type' => 'month']) }}">Du mois</a>
-                        <a class="dropdown-item" href="{{ route('events', ['type' => 'past']) }}">Passés</a>
-                        <a class="dropdown-item" href="{{ route('events', ['type' => 'future']) }}">Future</a>
+                        <a class="dropdown-item" href="{{ route('events', ['type' => 'month']) }}">This month</a>
+                        <a class="dropdown-item" href="{{ route('events', ['type' => 'past']) }}">Past</a>
+                        <a class="dropdown-item" href="{{ route('events', ['type' => 'future']) }}">Futur</a>
                     </div>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{ route('events', ['type' => 'suggestions']) }}">Boite à idée</a>
+                    <a class="nav-link" href="{{ route('events', ['type' => 'suggestions']) }}">IDEA BOX</a>
                 </li>
                 <li class="nav-item">
-                    <a href="{{ route('products.index') }}" class="nav-link">Boutique</a>
+                    <a href="{{ route('products.index') }}" class="nav-link">Store</a>
                 </li>
             </ul>
         </div>

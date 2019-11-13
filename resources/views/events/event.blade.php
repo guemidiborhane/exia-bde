@@ -18,7 +18,7 @@
                     submit-route="{{ route('toggleLike', compact('event')) }}"></likes-component>
                 @if (Auth::user()->hasRole('bde') || Auth::user()->events()->where('events.id', $event->id)->exists())
                     <a href="{{ route('events.edit', compact('event')) }}" class="btn btn-success btn-sm">
-                        Editer
+                        Edit
                     </a>
                 @endif
                 @if (Auth::user()->hasRole('staff'))
@@ -54,7 +54,7 @@
                                 :participants-count="{{ $event->participants()->count() }}"
                                 submit-route="{{ route('participate', ['event_id' => $event->id]) }}"></participate-component>
                         @else
-                            <span class="btn btn-sm btn-outline-danger disabled">Évènement terminé</span>
+                            <span class="btn btn-sm btn-outline-danger disabled">Past Event     </span>
                         @endif
                     @endif
                 </div>

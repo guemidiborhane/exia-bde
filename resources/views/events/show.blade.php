@@ -39,7 +39,7 @@
                         (Auth::user()->hasRole('bde') ||
                         json_decode($event->participates) ||
                         $event->user_id === Auth::user()->id))
-                        <a href="{{ route('uploads.create', compact('event')) }}" class="btn btn-link text-right">Ajouter des photos</a>
+                        <a href="{{ route('uploads.create', compact('event')) }}" class="btn btn-link text-right">Add pictures</a>
                     @endif
                 @endauth
             </h5>
@@ -54,7 +54,7 @@
             @endif
 
         <h5 class="text-right mb-5">
-            Commentaires <i class="fa fa-comment"></i>
+            Comments <i class="fa fa-comment"></i>
         </h5>
         <comments-component
         @auth

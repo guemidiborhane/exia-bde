@@ -22,7 +22,7 @@ class HomeController extends Controller
         $past_events = Event::whereRaw('planned_on < ?', today())->limit(5)->get();
         $comments = Comment::where([
             ['commentable_type', Event::class],
-            ['commentable_id', Event::pluck('id')]
+            ['commentable_id', 'IN', Event::pluck('id')]
         ])->orderBy('created_at')->limit(15)->get();
 
         return view('welcome', compact('coming_events', 'past_events', 'comments'));

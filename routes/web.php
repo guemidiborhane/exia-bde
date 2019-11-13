@@ -42,3 +42,4 @@ Route::get('/cart', 'CartController@index')->name('cart');
 Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::patch('/cart', 'CartController@update')->name('cart.update');
 Route::delete('/cart', 'CartController@destroy')->name('cart.destroy');
+

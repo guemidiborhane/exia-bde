@@ -45,12 +45,16 @@ class ProductsController extends Controller
             'category' => 'required',
         ]);
 
+        $photoName = time().'.'.$request->photo->getClientOriginalExtension();
+        $request->file('photo')->storeAs('products', $photoName, 'public');
+        
         $product = new Product([
             'name' => $request->get('name'),
             'description' => $request->get('description'),
             'photo' => $request->get('photo'),
             'price' => $request->get('price'),
-            'category' => 'request'->get('category')
+            'category' => 'request'->get('category'),
+            'photo' => $photoName
         ]);
         $product->save();
 
@@ -63,9 +67,9 @@ class ProductsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Product $product)
     {
-        //
+        return view('products.show', compact('product'));
     }
 
     /**

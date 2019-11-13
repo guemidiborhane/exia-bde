@@ -24,10 +24,13 @@
             </div>
             @auth
                 @if (Auth::user()->hasRole('bde'))
-                    <a href="{{ route('events.edit', compact('event')) }}" class="btn btn-link edit-btn">
+                <div class="btn-group edit-btn">
+                    <a href="{{ route('events.edit', compact('event')) }}" class="btn btn-link">
                         <i class="fa fa-pen"></i>
                         {{ __('Edit') }}
                     </a>
+                    <a href="{{ route('events.participants', compact('event')) }}" class="btn btn-link">Participants</a>
+                </div>
                 @endif
             @endauth
             <hr>
@@ -52,7 +55,6 @@
                 @endforeach
                 </div>
             @endif
-
         <h5 class="text-right mb-5">
             Comments <i class="fa fa-comment"></i>
         </h5>

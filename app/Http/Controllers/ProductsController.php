@@ -38,11 +38,11 @@ class ProductsController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name'=>'required',
-            'description'=>'required',
-            'photo'=>'required',
-            'price'=>'required',
-            'category'=>'required',
+            'name' => 'required',
+            'description' => 'required',
+            'photo' => 'required',
+            'price' => 'required',
+            'category' => 'required',
         ]);
 
         $product = new Product([
@@ -50,8 +50,7 @@ class ProductsController extends Controller
             'description' => $request->get('description'),
             'photo' => $request->get('photo'),
             'price' => $request->get('price'),
-            'category'=>'request'->get('category'),
-            
+            'category' => 'request'->get('category')
         ]);
         $product->save();
         return redirect('/products')->with('success', 'Contact saved!');
@@ -89,23 +88,24 @@ class ProductsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
         $request->validate([
-            'name'=>'required',
-            'description'=>'required',
-            'photo'=>'required',
-            'price'=>'required',
-            'category'=>'required',
-            'photo' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'name' => 'required',
+            'description' => 'required',
+            'price' => 'required',
+            'category' => 'required'
         ]);
-        $photoName = time().'.'.$request->photo->getClientOriginalExtension();
-        $request->file('photo')->storeAs('products', $photoName, 'public');
+
         $product = Product::find($id);
+        if ($request->file('photo')) {
+            $photoName = time().'.'.$request->photo->getClientOriginalExtension();
+            $request->file('photo')->storeAs('products', $photoName, 'public');
+            $product->photo = $photoName;
+        }
+
         $product->name =  $request->get('name');
         $product->description = $request->get('description');
-        $product->photo = $photoName;
         $product->price = $request->get('price');
-        $product->category=$request->get('category');
+        $product->category = $request->get('category');
         $product->save();
 
         return redirect('/products')->with('success', 'products updated!');

@@ -12,7 +12,7 @@
         "barryvdh/laravel-dompdf": "^0.8.3",
         "cybercog/laravel-likeable": "^3.1",
         "fideloper/proxy": "^4.0",
-        "laravel/framework": "5.7.*",
+        "laravel/framework": "5.8.*",
         "laravel/tinker": "^1.0",
         "spatie/laravel-cookie-consent": "^2.6"
     },

@@ -1,7 +1,7 @@
 <table class="table table-bordered">
     <thead>
         <tr>
-            <th scope="col" style="width: 15%">Titre</th>
+            <th scope="col" style="width: 15%">Title</th>
             <th scope="col" style="width: 60%">Description</th>
             <th scope="col" style="width: 15%">Date</th>
             <th scope="col" class="text-center">Participants</th>

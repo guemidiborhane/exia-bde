@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="container mt-4">
-        <a href="{{ route('events.show', compact('event')) }}" class="btn btn-link">Retour à l'évènement</a>
+        <a href="{{ route('events.show', compact('event')) }}" class="btn btn-link">Go back to the event</a>
         @include('shared.dropzone')
     </div>
 @endsection

@@ -14,7 +14,7 @@
 @endif
 
 <div class="form-group row">
-    <label for="name" class="col-md-3 col-form-label text-md-right">{{ __('Nom de l\'évènement') }}</label>
+    <label for="name" class="col-md-3 col-form-label text-md-right">{{ __('Event name') }}</label>
 
     <div class="col-md-8">
         <input id="name" type="text" class="form-control {{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name', $event->name) }}" required autofocus>
@@ -22,7 +22,7 @@
 </div>
 
 <div class="form-group row">
-    <label for="planned_on" class="col-md-3 col-form-label text-md-right">{{ __('Prévu le') }}</label>
+    <label for="planned_on" class="col-md-3 col-form-label text-md-right">{{ __('Planned on') }}</label>
 
     <div class="col-md-8">
         <input id="planned_on" type="date" class="form-control {{ $errors->has('planned_on') ? ' is-invalid' : '' }}" name="planned_on" value="{{ old('planned_on', optional($event->planned_on)->format('Y-m-d')) }}" required autofocus>
@@ -42,14 +42,14 @@
     </div>
 </div>
 <div class="form-group row">
-    <label for="image" class="col-md-3 col-form-label text-md-right">{{ __('Image à la une') }}</label>
+    <label for="image" class="col-md-3 col-form-label text-md-right">{{ __(' Image') }}</label>
     <div class="col-md-5">
         <input id="image" type="file" name="image" class="form-control {{ $errors->has('status') ? ' is-invalid' : '' }}">
     </div>
 @if (Auth::user()->hasRole('bde'))
     <div class="custom-control custom-checkbox align-self-center col-md-4">
         <input id="status" type="checkbox" class="custom-control-input {{ $errors->has('status') ? ' is-invalid' : '' }}" name="status" {{ $event->status ? 'checked' : '' }}>
-        <label class="custom-control-label" for="status">{{ __('Boite à idée?') }}</label>
+        <label class="custom-control-label" for="status">{{ __('Idea box?') }}</label>
     </div>
 @endif
 </div>
@@ -65,7 +65,7 @@
 <div class="form-group row mb-0">
     <div class="col-md-8 offset-md-3">
         <button type="submit" class="btn btn-primary btn-block">
-            {{ __('Enregistrer') }}
+            {{ __('Save') }}
         </button>
     </div>
 </div>

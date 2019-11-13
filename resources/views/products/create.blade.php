@@ -16,7 +16,7 @@
     @endif
       <form method="post" action="{{ route('products.store') }}">
           @csrf
-          <div class="form-group">    
+          <div class="form-group">
               <label for="name">Name:</label>
               <input type="text" class="form-control" name="name"/>
           </div>
@@ -37,11 +37,15 @@
 
           <div class="form-group">
               <label for="category">category:</label>
-              <input type="text" class="form-control" name="category"/>
+              <select name="category" id="category" class="form-control">
+                @foreach ($categories as $category)
+                    <option value="{{ $category }}">{{ ucfirst($category) }}</option>
+                @endforeach
+              </select>
           </div>
           <button type="submit" class="btn btn-primary-outline">Add contact</button>
       </form>
   </div>
 </div>
-</div>         
+</div>
 @endsection

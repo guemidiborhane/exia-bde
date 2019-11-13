@@ -25,7 +25,8 @@ class ProductsController extends Controller
      */
     public function create()
     {
-        return view('products.create');
+        $categories = Product::getPossibleEnumValues('category');
+        return view('products.create', compact('categories'));
     }
 
     /**
@@ -76,7 +77,9 @@ class ProductsController extends Controller
     public function edit($id)
     {
         $product = Product::find($id);
-        return view('products.edit', compact('product'));
+        $categories = Product::getPossibleEnumValues('category');
+
+        return view('products.edit', compact('product', 'categories'));
     }
 
     /**

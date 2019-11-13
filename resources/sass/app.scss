@@ -319,7 +319,7 @@ footer {
     }
   }
 
-} 
+}
 
 .nav-item:hover {
   background: $blue;
@@ -333,5 +333,13 @@ footer {
   }
   .carousel{
     display: none;
+  }
+}
+
+
+.product-card {
+  transition: all 0.2s ease;
+  &:hover {
+    box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.1);
   }
 }

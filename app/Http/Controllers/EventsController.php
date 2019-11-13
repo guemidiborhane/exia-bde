@@ -36,7 +36,7 @@ class EventsController extends Controller
                 $events = $events->whereRaw('YEAR(planned_on) = ? AND MONTH(planned_on) = ?', [$year, $month]);
                 break;
             case 'past':
-                $events = $events->whereRaw('YEAR(planned_on) < ? OR MONTH(planned_on) < ?', [$year, $month]);
+                $events = $events->whereRaw('YEAR(planned_on) <= ? AND MONTH(planned_on) < ?', [$year, $month]);
                 break;
             case 'future':
                 $events = $events->whereRaw('YEAR(planned_on) >= ? AND MONTH(planned_on) > ?', [$year, $month]);

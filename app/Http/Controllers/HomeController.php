@@ -19,7 +19,7 @@ class HomeController extends Controller
     {
         $week_ends_at = Carbon::now()->endOfWeek()->toDateString();
         $coming_events = Event::whereRaw('planned_on >= ? AND planned_on <= ? AND status IS NULL', [today(), $week_ends_at])->get();
-        $past_events = Event::whereRaw('planned_on < ?', today())->limit(5)->get();
+        $past_events = Event::whereRaw('planned_on < ?', Carbon::now()->format('Y-m-d'))->limit(5)->get();
         $comments = Comment::where([
             ['commentable_type', Event::class],
             ['commentable_id', 'IN', Event::pluck('id')]

@@ -125,5 +125,6 @@ $pagination-disabled-border-color:  $pagination-border-color !default;
 $breadcrumb-bg:                     transparent !default;
 
 //queries
-$screen-md-max :767px;
-$screen-lg-min:768px;
+$screen-sm-max: 576px;
+$screen-md-max: 767px;
+$screen-lg-min: 768px;

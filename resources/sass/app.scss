@@ -13,6 +13,11 @@
 // @import '~datatables.net-bs4/css/dataTables.bootstrap4.min.css';
 
 //media queries
+@mixin sm {
+  @media (max-width: #{$screen-sm-max}) {
+      @content;
+  }
+}
 @mixin md {
   @media (max-width: #{$screen-md-max}) {
       @content;
@@ -313,4 +318,14 @@ footer {
     }
   }
   
+}
+@include sm {
+  .table{
+    
+        display: none;
+    }
+  .carousel{
+      display: none;
+  }
+
 }

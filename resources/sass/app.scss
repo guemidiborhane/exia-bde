@@ -15,17 +15,17 @@
 //media queries
 @mixin sm {
   @media (max-width: #{$screen-sm-max}) {
-      @content;
+    @content;
   }
 }
 @mixin md {
   @media (max-width: #{$screen-md-max}) {
-      @content;
+    @content;
   }
 }
 @mixin lg {
   @media (min-width: #{$screen-lg-min}) {
-      @content;
+    @content;
   }
 }
 //css
@@ -107,38 +107,43 @@ body {
 
 footer {
   @include lg{
-  background: $blue;
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  .title {
-    color: $jet;
-  }
-  a {
-    color: $white;
-    &:hover {
-      text-decoration: none !important;
-      color: $warning;
+    background: $blue;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    .title {
+      color: $jet;
+    }
+
+    a {
+      color: $white;
+      &:hover {
+        text-decoration: none !important;
+        color: $warning;
+      }
     }
   }
-  }
+
   @include md{
     background: $blue;
-  flex-grow: 1;
-  position: static;
-  width: 100%;
-  bottom: 0;
-  padding: 2px;
-  .title {
-    color: $jet;
-  }
-  a {
-    color: $white;
-    &:hover {
-      text-decoration: none !important;
-      color: $warning;
+    flex-grow: 1;
+    position: static;
+    width: 100%;
+    bottom: 0;
+    padding: 2px;
+
+    .title {
+      color: $jet;
     }
-  }
+
+    a {
+      color: $white;
+      &:hover {
+        text-decoration: none !important;
+        color: $warning;
+      }
+    }
   }
 }
 
@@ -298,12 +303,8 @@ footer {
       content: attr(data-th); font-weight: bold;
       display: inline-block; width: 8rem;
   }
-
-
-
   table#cart tfoot td{display:block; }
   table#cart tfoot td .btn{display:block;}
-
 }
 
 @include md{
@@ -317,15 +318,13 @@ footer {
       }
     }
   }
-  
+
 }
 @include sm {
   .table{
-    
-        display: none;
-    }
-  .carousel{
-      display: none;
+    display: none;
   }
-
+  .carousel{
+    display: none;
+  }
 }

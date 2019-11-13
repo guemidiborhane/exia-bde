@@ -1932,9 +1932,7 @@ __webpack_require__.r(__webpack_exports__);
     submit: function submit() {
       var _this = this;
 
-      axios.post(this.submitRoute, {
-        event_id: this.eventId
-      }).then(function (response) {
+      axios.post(this.submitRoute).then(function (response) {
         var data = response.data;
 
         if (data.action === 'attach') {

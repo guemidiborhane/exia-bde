@@ -9999,3 +9999,13 @@ html {
   }
 }
 
+@media (max-width: 576px) {
+  .table {
+    display: none;
+  }
+
+  .carousel {
+    display: none;
+  }
+}
+

@@ -9944,3 +9944,11 @@ footer a:hover {
   }
 }
 
+.nav-item:hover {
+  background: #5D89DA;
+}
+
+.nav-item:hover > a {
+  color: #fff;
+}
+

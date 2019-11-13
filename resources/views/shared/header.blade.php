@@ -29,8 +29,14 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('events', ['type' => 'suggestions']) }}">Boite à idée</a>
                 </li>
-                <li class="nav-item">
-                    <a href="{{ route('products.index') }}" class="nav-link">Boutique</a>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Boutique
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{ route('products.index', ['category' => 'swagg']) }}">Swagg</a>
+                        <a class="dropdown-item" href="{{route('products.index',['category'=>'goodies']) }}">Goodies</a>
+                    </div>
                 </li>
             </ul>
         </div>

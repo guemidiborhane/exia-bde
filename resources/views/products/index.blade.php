@@ -12,7 +12,8 @@
         <a href="{{route('products.create')}}" class="btn btn-link d-block mx-auto">Ajouter</a>
         <div class="card-deck">
             @foreach ($products as $product)
-                <div class="card w-25 mb-4 product-card" style="flex-basis: auto">
+            <div class="col-md-4">
+                <div class="card mb-4 product-card" style="flex-basis: auto">
                     <img src="{{ asset('storage/products/'.$product->photo) }}" alt="" class="card-img-top mx-auto" style="height: 250px; width: fit-content; max-width: 100%">
                     <div class="card-body">
                         <h4 class="card-title">
@@ -48,6 +49,7 @@
                         @endauth
                     </div>
                 </div>
+            </div>
             @endforeach
         </div><!-- End row -->
 

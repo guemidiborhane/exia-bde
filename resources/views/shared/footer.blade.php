@@ -16,7 +16,6 @@
                 <ul class="list-unstyled">
                     <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> About Us</a></li>
                     <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> FAQ's</a></li>
-                    <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Sell Your Items</a></li>
                     <li><a href="#" title=""><i class="fa fa-angle-double-right"></i> Contact Us</a></li>
                 </ul>
             </div>

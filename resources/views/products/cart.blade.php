@@ -25,7 +25,9 @@
                 <tr>
                     <td data-th="Product">
                         <div class="row">
-                            <div class="col-sm-3 hidden-xs"><img src="{{ $details['photo'] }}" width="" height="60" class="img-responsive"/></div>
+                            <div class="col-sm-3 hidden-xs">
+                                <img src="{{ asset('storage/products/'.$details['photo']) }}" width="" height="60" alt="" class="img-responsive">
+                            </div>
                             <div class="col-sm-9">
                                 <h4 class="nomargin">{{ $details['name'] }}</h4>
                             </div>

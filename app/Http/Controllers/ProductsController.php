@@ -8,14 +8,20 @@ use App\Product;
 class ProductsController extends Controller
 {
 
-    public function index($category = null)
+    public function index(Request $request, $category = null)
     {
-        if ($category === null) {
-            $products = Product::all();
+        $query = $request->input('q');
+        if ($query) {
+            $products = Product::where('name', 'like', "%{$query}%")->orWhere('description', 'like', "%{$query}%")->get();
         } else {
-            $products = Product::where('category', $category)->get();
+            if ($category === null) {
+                $products = Product::all();
+            } else {
+                $products = Product::where('category', $category)->get();
+            }
         }
-        return view('products.index', compact('products'));
+
+        return view('products.index', compact('products', 'query'));
     }
 
     /**

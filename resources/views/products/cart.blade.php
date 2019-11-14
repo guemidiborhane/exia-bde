@@ -1,10 +1,10 @@
 @extends('layouts.app')
- 
+
 @section('title', 'Cart')
- 
+
 @section('content')
     <div class="container mt-4">
-        
+
     <table id="cart" class="table table-hover table-condensed">
         <thead>
         <tr>
@@ -16,11 +16,11 @@
         </tr>
         </thead>
         <tbody>
- 
+
         <?php $total = 0 ?>
         @if(session('cart'))
             @foreach(session('cart') as $id => $details)
- 
+
                 <?php $total += (Float) $details['price'] * $details['quantity'] ?>
                 <tr>
                     <td data-th="Product">
@@ -55,7 +55,7 @@
                 </tr>
             @endforeach
         @endif
- 
+
         </tbody>
         <tfoot>
         <tr>
@@ -66,6 +66,8 @@
         </tr>
         </tfoot>
     </table>
+
+    <a href="{{ route('cart.submit') }}" class="btn btn-link float-right">Purchase</a>
     </div>
- 
+
 @endsection

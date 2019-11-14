@@ -21,7 +21,6 @@
                         Edit
                     </a>
                 @endif
-                @if (Auth::user()->hasRole('staff'))
                     <a href="{{ route('events.destroy', compact('event')) }}"
                         class="btn btn-sm btn-danger"
                         onclick="event.preventDefault();
@@ -35,7 +34,6 @@
                         @csrf
                         @method('DELETE')
                     </form>
-                @endif
             @endauth
             </div>
         </h5>

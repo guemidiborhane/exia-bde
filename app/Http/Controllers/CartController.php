@@ -3,13 +3,15 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
+
+use App\Notifications\CartSubmited;
 
 use App\Product;
-
+use App\User;
 
 class CartController extends Controller
 {
-    
     public function index()
     {
         return view('products.cart');
@@ -23,9 +25,9 @@ class CartController extends Controller
         if (!$product) {
             abort(404);
         }
-    
+
         $cart = session()->get('cart');
-    
+
         // if cart is empty then this the first product
         if (!$cart) {
             $cart = [
@@ -36,20 +38,19 @@ class CartController extends Controller
                     "photo" => $product->photo
                 ]
             ];
-    
+
             session()->put('cart', $cart);
-    
+
             return redirect()->back()->with('success', 'Product added to cart successfully!');
         }
-    
+
         // if cart not empty then check if this product exist then increment quantity
         if (isset($cart[$id])) {
             $cart[$id]['quantity']++;
             session()->put('cart', $cart);
             return redirect()->back()->with('success', 'Product added to cart successfully!');
-    
         }
-    
+
         // if item not exist in cart then add to cart with quantity = 1
         $cart[$id] = [
             "name" => $product->name,
@@ -59,7 +60,7 @@ class CartController extends Controller
         ];
 
         session()->put('cart', $cart);
-    
+
         return redirect()->back()->with('success', 'Product added to cart successfully!');
     }
 
@@ -84,8 +85,18 @@ class CartController extends Controller
                 session()->put('cart', $cart);
             }
             session()->flash('success', 'Product removed successfully');
-            
+
             return redirect()->route('cart');
         }
+    }
+
+    public function purchase()
+    {
+        $bde_members = User::where('role', 'bde')->get();
+
+        Notification::send($bde_members, new CartSubmited(\Auth::user(), session('cart')));
+        session()->forget('cart');
+
+        return redirect()->route('home');
     }
 }

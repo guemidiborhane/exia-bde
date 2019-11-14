@@ -32,14 +32,15 @@ Route::put('/users/{user}', 'UsersController@update')->name('users.update');
 
 Auth::routes();
 
- 
+
 Route::resource('products', 'ProductsController', [
     'except' => ['index', 'show']
 ]);
 Route::get('/products/{product}', 'ProductsController@show')->where('product', '[0-9]+')->name('products.show');
 Route::get('/products/{category?}', 'ProductsController@index')->name('products.index');
+
 Route::get('/cart', 'CartController@index')->name('cart');
 Route::post('/cart', 'CartController@store')->name('cart.store');
 Route::patch('/cart', 'CartController@update')->name('cart.update');
 Route::delete('/cart', 'CartController@destroy')->name('cart.destroy');
-
+Route::get('/cart/purchase', 'CartController@purchase')->name('cart.submit');

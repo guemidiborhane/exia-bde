@@ -22,6 +22,9 @@ git clone --recursive https://github.com/guemidiborhane/exia-bde.git
 composer install
 yarn
 
+# Compile the assets
+yarn run dev
+
 # Run the server
 php artisan serve
 ```

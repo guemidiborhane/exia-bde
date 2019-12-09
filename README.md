@@ -41,8 +41,17 @@ yarn run start
 ```
 
 # Screenshots
+
+## Homepage
+
 ![Homepage](screenshots/homepage.png?raw=true)
+
+## Events Listing
+
 ![Events index page](screenshots/events@index.png?raw=true)
+
+## Events Page
+
 ![Events show page](screenshots/events@show.png?raw=true)
 
 # Notes

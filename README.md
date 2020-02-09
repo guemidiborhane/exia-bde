@@ -17,16 +17,13 @@ For the PHP part:
 ```bash
 # Clone the project
 git clone --recursive https://github.com/guemidiborhane/exia-bde.git
+cp -v .env.example .env
 
-# Install the dependencies
-composer install
-yarn
+docker-compose build app api
+docker-compose run --rm app yarn install
+docker-compose run --rm app yarn run dev
 
-# Compile the assets
-yarn run dev
-
-# Run the server
-php artisan serve
+docker-compose run --rm api yarn install
 ```
 
 for the API, assuming you already cloned the master project (which has the API as a submodule):

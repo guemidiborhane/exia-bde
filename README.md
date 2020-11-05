@@ -5,12 +5,12 @@ This project was made during the second year at CESI.ei (CESI exia).
 * Borhaneddine GUEMIDI
 * Aya BOUAKKAZ ([@bouakkazaya](https://github.com/bouakkazaya))
 * Anis Fayçal YAGOUB ([@faycalnis](https://github.com/faycalnis))
-* Hichem SOUMATI ([@hichemsoum](https://github.com/hichemsoum))
+* Hichem SOUMATI ([@hsoum](https://github.com/hsoum))
 
 # Tools
 * Laravel 5.8 (updated to Laravel 6 during the project)
 * Vue.js: for some reusable components (eg: comments, likes, ...)
-* express (for the [API](https://github.com/hichemsoum/exia-bde-api))
+* express (for the [API](https://github.com/hsoum/exia-bde-api))
 
 # Installation
 For the PHP part:
